@@ -1,0 +1,30 @@
+[alias]
+	l = log --graph --oneline
+	la = log --graph --oneline --all
+	ls = log --graph --oneline --stat
+	s = status
+[user]
+	name = Quan Do
+	email = biquando@gmail.com
+[init]
+	defaultBranch = master
+[core]
+	pager = less -RFX
+
+# BEGIN: git-delta
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+# END: git-delta

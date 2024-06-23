@@ -1,0 +1,92 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from math import *
+from functools import reduce
+R = radians
+D = degrees
+
+def sci(x, prec=2):
+    """Print a number in scientific notation
+
+    Args:
+        x (number): the number to print
+        prec (int): number of digits after the decimal
+    """
+    print((f'{{:.{prec}e}}').format(x))
+
+def integrate(f, a, b, dx=0.0001):
+    """Numerically integrate a function
+
+    Args:
+        f (function): function to integrate
+        a (float): lower bound
+        b (float): upper bound
+        dx (float): width of each sample
+
+    Returns:
+        integral from a to b of f(x)dx
+    """
+    fn = np.vectorize(f)
+    if a > b:
+        c = a
+        a = b
+        b = c
+        fn = np.vectorize(lambda x: -1 * f(x))
+    x = np.linspace(a+dx, b-dx, int((b-a)/dx))
+    return np.sum(fn(x)*dx)
+
+def summation(f, a, b):
+    """Calculate the summation of a discrete function
+
+    Args:
+        f (function): function to sum
+        a (int): lower bound (inclusive)
+        b (int): upper bound (inclusive)
+
+    Returns:
+        sum of f(x) for x from a to b
+    """
+    x = np.linspace(a, b, b-a+1, dtype=int)
+    fn = np.vectorize(f)
+    return np.sum(fn(x))
+
+fac = lambda x: factorial(x) if isinstance(x, int) else gamma(x+1)
+C = lambda n, r: factorial(n) / factorial(n-r) / factorial(r)
+binom_dist = lambda n, p: lambda k: C(n, k) * p**k * (1-p)**(n-k)
+poisson_dist = lambda l: lambda k: l**k * exp(-l) / fac(k)
+exp_dist = lambda l: lambda x: l*exp(-l*x)
+gamma_dist = lambda a, l: lambda x: l*exp(-l*x)*(l*x)**(a-1)/gamma(a)
+lognormal_dist = lambda u, s: lambda y: \
+    1/(y*s*sqrt(2*pi))*exp(-((log(y)-u)**2)/(2*s**2))
+gaussian_dist = lambda u=0, s=1: lambda x: \
+    1/(s*sqrt(2*pi))*exp(-1/2*((x-u)/s)**2)
+normal_dist = gaussian_dist
+
+def plot_discrete(f, a, b):
+    x = np.array(range(a, b+1))
+    y = np.vectorize(f)(x)
+    plt.scatter(x, y)
+    plt.show()
+
+def plot_continuous(f, a, b, dx=0.0001):
+    x = np.linspace(a+dx, b-dx, int((b-a)/dx))
+    y = np.vectorize(f)(x)
+    plt.plot(x, y)
+    plt.show()
+
+# === Physics ==================================================================
+
+__g = 9.81
+__u0 = 4*pi*10**-7
+__e0 = 8.85e-12
+__c = 3e8
+
+# Calculates the Lorentz factor
+#   u:  speed of the reference frame
+def __lorentz(u):
+    return 1 / sqrt(1 - (u/__c)**2)
+
+# Calculates the speed of a reference frame
+#   gamma:  the Lorentz factor
+def __lorentz_(gamma):
+    return 3e8 * sqrt(1 - (1/gamma)**2)
