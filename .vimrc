@@ -3,7 +3,7 @@ nnoremap <Space> <Nop>
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
-Plug 'dracula/vim', {'as': 'dracula'}
+Plug 'catppuccin/vim', {'as': 'catppuccin'}
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
@@ -25,8 +25,7 @@ set timeoutlen=300                           " timeout for leader
 set ttimeoutlen=0                            " timeout for keycodes
 set updatetime=250                           " write to swap file after this time idle
 
-let g:dracula_colorterm = 0
-color dracula
+color catppuccin_macchiato
 
 " List & swap buffer
 nnoremap <Leader>b :ls<CR>:b<Space>
