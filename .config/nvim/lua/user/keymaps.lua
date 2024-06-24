@@ -5,6 +5,16 @@
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- Yank/Paste from system clipboard
+vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+
+-- Center window on search
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
+
 -- Remap for dealing with soft wrap
 vim.keymap.set({ 'n', 'v' }, 'k', "v:count == 0 ? 'gk' : 'k'",
   { expr = true, silent = true })
@@ -33,13 +43,13 @@ vim.keymap.set('v', '<C-j>', ':m \'>+1<CR>gv=gv')
 vim.keymap.set('v', '<C-h>', '<gv')
 vim.keymap.set('v', '<C-l>', '>gv')
 
--- SECTION: Option keymaps
-
-local settingsLeader = '<C-,>'
-
-vim.keymap.set('n', settingsLeader .. settingsLeader,
+vim.keymap.set('n', '<Leader>l',
   function() vim.cmd('noh') end,
   { desc = 'Clear highlight' })
+
+-- SECTION: Option keymaps
+
+local settingsLeader = '<Leader>,'
 
 vim.keymap.set('n', settingsLeader .. 'w',
   function() vim.o.wrap = not vim.o.wrap end,
