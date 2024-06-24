@@ -15,7 +15,7 @@ local set_catppuccin = function()
   local catppuccin_exists, catppuccin = pcall(require, 'catppuccin')
   if catppuccin_exists then
     catppuccin.setup({
-      flavour = 'mocha',
+      flavour = 'macchiato',
       transparent_background = false,
     })
     vim.cmd.colorscheme('catppuccin')
