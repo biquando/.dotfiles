@@ -81,6 +81,10 @@ vim.keymap.set('n', settingsLeader .. 'l',
   require('plugins.lint').toggle_lint,
   { desc = 'Toggle [l]inting hints' })
 
+vim.keymap.set('n', settingsLeader .. 'i',
+  require('user.functions').link_img,
+  { desc = 'Link [i]mage' })
+
 
 -- NOTE: See plugins.toggleterm for terminal keymaps
 
