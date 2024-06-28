@@ -85,6 +85,16 @@ vim.keymap.set('n', settingsLeader .. 'i',
   require('user.functions').link_img,
   { desc = 'Link [i]mage' })
 
+vim.keymap.set('n', settingsLeader .. 'z',
+  function()
+    local zen_exists, zen = pcall(require, 'zen-mode')
+    if not zen_exists then
+      return
+    end
+    zen.toggle()
+  end,
+  { desc = 'Toggle [z]en mode' })
+
 
 -- NOTE: See plugins.toggleterm for terminal keymaps
 

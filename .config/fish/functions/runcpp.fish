@@ -6,8 +6,10 @@ function runcpp
 
     set -l int_file (mktemp)
 
-    # Compile & Run
-    clang++ $argv -o $int_file
+    # Compile
+    clang++ $argv -o $int_file || return $status
+
+    # Run
     $int_file
     set -l exec_status $status
 
