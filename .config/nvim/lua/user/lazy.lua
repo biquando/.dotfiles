@@ -226,4 +226,8 @@ require('lazy').setup({
     },
   },
 
+  -- SECTION: Separate plugins
+  require('plugins.conform'),
+  require('plugins.markdown-preview'),
+
 }, {})

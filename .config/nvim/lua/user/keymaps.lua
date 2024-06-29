@@ -43,7 +43,7 @@ vim.keymap.set('v', '<C-j>', ':m \'>+1<CR>gv=gv')
 vim.keymap.set('v', '<C-h>', '<gv')
 vim.keymap.set('v', '<C-l>', '>gv')
 
-vim.keymap.set('n', '<Leader>l',
+vim.keymap.set('n', '<Esc>',
   function() vim.cmd('noh') end,
   { desc = 'Clear highlight' })
 
@@ -81,10 +81,6 @@ vim.keymap.set('n', settingsLeader .. 'l',
   require('plugins.lint').toggle_lint,
   { desc = 'Toggle [l]inting hints' })
 
-vim.keymap.set('n', settingsLeader .. 'i',
-  require('user.functions').link_img,
-  { desc = 'Link [i]mage' })
-
 vim.keymap.set('n', settingsLeader .. 'z',
   function()
     local zen_exists, zen = pcall(require, 'zen-mode')
@@ -97,5 +93,6 @@ vim.keymap.set('n', settingsLeader .. 'z',
 
 
 -- NOTE: See plugins.toggleterm for terminal keymaps
-
 -- NOTE: See plugins.harpoon for harpoon keymaps
+-- NOTE: See plugins.conform for conform keymaps
+-- NOTE: See plugins.markdown-preview for conform keymaps
