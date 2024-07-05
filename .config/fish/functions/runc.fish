@@ -7,7 +7,7 @@ function runc
     set -l int_file (mktemp)
 
     # Compile & Run
-    cc $argv -o $int_file
+    cc $argv -o $int_file || return $status
     $int_file
     set -l exec_status $status
 

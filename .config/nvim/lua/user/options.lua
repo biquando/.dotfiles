@@ -58,6 +58,8 @@ vim.opt.display = 'lastline,msgsep,uhex'
 vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = '~', nbsp = '+' }
 
+vim.opt.showmode = false
+
 vim.opt.whichwrap = '<,>,[,]'
 vim.opt.wrap = true
 

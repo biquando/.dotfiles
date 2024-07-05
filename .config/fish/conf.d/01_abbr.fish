@@ -22,6 +22,7 @@ if status is-interactive
             abbr -a myip "ifconfig | grep 'inet[^6]'"
             abbr -a lt launchtab
             abbr -a armld "ld -lSystem -syslibroot (xcrun --sdk macosx --show-sdk-path) -e _main -arch arm64"
+            abbr -a icat "kitty icat"
         case 'Linux'
             abbr -a myip "ip a | grep 'inet[^6]'"
             abbr -a fdsk "sudo fdisk -l | sed -e '/Disk \/dev\/loop/,+5d'"
