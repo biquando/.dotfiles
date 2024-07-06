@@ -63,4 +63,6 @@ vim.opt.showmode = false
 vim.opt.whichwrap = '<,>,[,]'
 vim.opt.wrap = true
 
-vim.o.cursorline = true
+vim.opt.cursorline = true
+
+vim.opt.foldmethod = 'marker'

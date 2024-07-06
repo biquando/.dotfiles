@@ -115,7 +115,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'tokyonight',
+        theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
       },
@@ -224,6 +224,25 @@ require('lazy').setup({
         },
       },
     },
+  },
+
+  -- SECTION: Headlines (for markdown)
+  {
+    'lukas-reineke/headlines.nvim',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    config = true,
+  },
+
+  -- SECTION: Nabla (latex rendering)
+  {
+    'jbyuki/nabla.nvim',
+    config = function()
+      vim.keymap.set('n', '<Leader>l', require('nabla').popup, {
+        desc = '[L]atex preview'
+      })
+    end,
+    lazy = true,
+    event = 'BufEnter *.md'
   },
 
   -- SECTION: Separate plugins

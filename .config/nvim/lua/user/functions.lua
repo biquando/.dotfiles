@@ -41,13 +41,13 @@ M.link_img = function()
   local cwd_rel = M.cwd_rel_to_buf()
   os.execute('mkdir -p ' .. ATTACHMENTS_FOLDER)
 
-  local status = os.execute('test 1>/dev/null 2>&1 -f ' .. orig_path)
+  local status = os.execute('test 1>/dev/null 2>&1 -f \'' .. orig_path .. '\'')
   if status ~= 0 then
     print('Error ' .. status .. ': file ' .. orig_path .. ' does not exist')
     return
   end
 
-  local cp_status = os.execute('cp 1>/dev/null 2>&1 ' .. orig_path .. ' ' .. new_path)
+  local cp_status = os.execute('cp 1>/dev/null 2>&1 \'' .. orig_path .. '\' ' .. new_path)
   if cp_status ~= 0 then
     print('Error ' .. status .. ' linking image:\n' .. orig_path .. '\n' .. new_path)
     return
