@@ -180,7 +180,7 @@ require('lazy').setup({
   -- SECTION: Oil
   {
     'stevearc/oil.nvim',
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     -- See plugins/oil.lua
   },
 
@@ -248,5 +248,6 @@ require('lazy').setup({
   -- SECTION: Separate plugins
   require('plugins.conform'),
   require('plugins.markdown-preview'),
+  require('plugins.nvim-tree'),
 
 }, {})

@@ -91,8 +91,20 @@ vim.keymap.set('n', settingsLeader .. 'z',
   end,
   { desc = 'Toggle [z]en mode' })
 
+vim.keymap.set('n', settingsLeader .. 'e',
+  function()
+    local nvim_tree_exists, nvim_tree_api = pcall(require, 'nvim-tree.api')
+    if not nvim_tree_exists then
+      return
+    end
+    nvim_tree_api.tree.toggle({
+      find_file = true, update_root = false, focus = true,
+    })
+  end,
+  { desc = 'Toggle Nvim Tr[e]e' })
 
 -- NOTE: See plugins.toggleterm for terminal keymaps
 -- NOTE: See plugins.harpoon for harpoon keymaps
 -- NOTE: See plugins.conform for conform keymaps
--- NOTE: See plugins.markdown-preview for conform keymaps
+-- NOTE: See plugins.markdown-preview for markdown-preview keymaps
+-- NOTE: See plugins.nvim-tree for nvim-tree keymaps
