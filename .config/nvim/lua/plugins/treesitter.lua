@@ -6,7 +6,7 @@ end
 -- [[ Configure Treesitter ]]
 ---@diagnostic disable: missing-fields
 -- See `:help nvim-treesitter`
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter.configs').setup({
   -- Add languages to be installed here that you want installed for treesitter
   ensure_installed = {
     'bash',
@@ -91,7 +91,7 @@ require('nvim-treesitter.configs').setup {
     --   },
     -- },
   },
-}
+})
 
 -- Diagnostic keymaps
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev,

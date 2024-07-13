@@ -15,7 +15,7 @@ cmp.setup({
   },
   completion = { completeopt = 'menu,menuone,noinsert' },
 
-  mapping = cmp.mapping.preset.insert {
+  mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-Space>'] = cmp.mapping.confirm({ select = false }),
@@ -33,11 +33,10 @@ cmp.setup({
         luasnip.expand_or_jump()
       end
     end, { 'i', 's' }),
-  },
+  }),
 
   sources = {
     { name = 'nvim_lsp' },
     { name = 'path' },
   },
-
 })

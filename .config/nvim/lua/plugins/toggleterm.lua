@@ -8,7 +8,6 @@ end
 -- for only toggle term, use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
-
 local toggleterm_exists, toggleterm = pcall(require, 'toggleterm')
 if not toggleterm_exists then
   return

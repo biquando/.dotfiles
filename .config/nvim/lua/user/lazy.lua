@@ -1,13 +1,13 @@
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
+  vim.fn.system({
     'git',
     'clone',
     '--filter=blob:none',
     'https://github.com/folke/lazy.nvim.git',
     '--branch=stable', -- latest stable release
     lazypath,
-  }
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -17,7 +17,7 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', config = true },
   { 'folke/which-key.nvim', config = true },
   'tpope/vim-surround',
-  { 'NMAC427/guess-indent.nvim', config = true },  -- alternative: vim-sleuth
+  { 'NMAC427/guess-indent.nvim', config = true }, -- alternative: vim-sleuth
   { 'windwp/nvim-autopairs', config = true },
 
   -- SECTION: LSP
@@ -30,7 +30,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -75,15 +75,15 @@ require('lazy').setup({
       on_attach = function(bufnr)
         vim.keymap.set('n', 'gh', require('gitsigns').prev_hunk, {
           buffer = bufnr,
-          desc = '[G]o to Previous [h]unk'
+          desc = '[G]o to Previous [h]unk',
         })
         vim.keymap.set('n', 'gH', require('gitsigns').next_hunk, {
           buffer = bufnr,
-          desc = '[G]o to Next [H]unk'
+          desc = '[G]o to Next [H]unk',
         })
         vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, {
           buffer = bufnr,
-          desc = '[P]review [H]unk'
+          desc = '[P]review [H]unk',
         })
       end,
     },
@@ -103,8 +103,8 @@ require('lazy').setup({
     },
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    'catppuccin/nvim',
+    name = 'catppuccin',
     priority = 1000,
     config = require('user.colors').set_colors,
   },
@@ -144,7 +144,7 @@ require('lazy').setup({
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
         cond = function()
-          return vim.fn.executable 'make' == 1
+          return vim.fn.executable('make') == 1
         end,
       },
     },
@@ -165,8 +165,8 @@ require('lazy').setup({
     config = function()
       require('todo-comments').setup({
         keywords = {
-          SECTION = { icon = '#', color = 'hint' }
-        }
+          SECTION = { icon = '#', color = 'hint' },
+        },
       })
     end,
   },
@@ -195,22 +195,18 @@ require('lazy').setup({
   {
     'tpope/vim-rhubarb',
     config = function()
-      vim.api.nvim_create_user_command(
-        'Browse',
-        function (opts)
-          vim.fn.system({ 'open', opts.fargs[1] })
-        end,
-        { nargs = 1 }
-      )
+      vim.api.nvim_create_user_command('Browse', function(opts)
+        vim.fn.system({ 'open', opts.fargs[1] })
+      end, { nargs = 1 })
     end,
   },
 
   -- SECTION: Copilot
   -- {
   --   'github/copilot.vim',
-    -- config = function()
-    --   vim.cmd('Copilot disable')
-    -- end,
+  -- config = function()
+  --   vim.cmd('Copilot disable')
+  -- end,
   -- },
 
   -- SECTION: Zen Mode
@@ -238,16 +234,16 @@ require('lazy').setup({
     'jbyuki/nabla.nvim',
     config = function()
       vim.keymap.set('n', '<Leader>l', require('nabla').popup, {
-        desc = '[L]atex preview'
+        desc = '[L]atex preview',
       })
     end,
     lazy = true,
-    event = 'BufEnter *.md'
+    event = 'BufEnter *.md',
   },
 
   -- SECTION: Separate plugins
   require('plugins.conform'),
   require('plugins.markdown-preview'),
   require('plugins.nvim-tree'),
-
+  require('plugins.leap'),
 }, {})

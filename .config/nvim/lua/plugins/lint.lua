@@ -6,7 +6,9 @@ if lint_exists then
 
   local pylint = require('lint').linters.pylint
   pylint.args = {
-    '-f', 'json', '--disable=import-error,missing-module-docstring,missing-function-docstring'
+    '-f',
+    'json',
+    '--disable=import-error,missing-module-docstring,missing-function-docstring',
   }
 
   local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })

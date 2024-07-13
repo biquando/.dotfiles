@@ -11,7 +11,7 @@ end
 
 local retab = function(should_retab)
   if should_retab then
-    vim.cmd [[ retab! ]]
+    vim.cmd([[ retab! ]])
   end
 end
 
@@ -38,9 +38,14 @@ SET_INDENT = function(buf_opts, w, et, should_retab)
   retab(should_retab)
 end
 
+vim.api.nvim_create_user_command(
+  'SP',
+  [[lua SET_INDENT(vim.opt, <f-args>, true, true)]],
+  { nargs = 1 }
+)
 
-vim.api.nvim_create_user_command('SP',
-  [[lua SET_INDENT(vim.opt, <f-args>, true, true)]], { nargs = 1 })
-
-vim.api.nvim_create_user_command('TS',
-  [[lua SET_INDENT(vim.opt, <f-args>, false, true)]], { nargs = 1 })
+vim.api.nvim_create_user_command(
+  'TS',
+  [[lua SET_INDENT(vim.opt, <f-args>, false, true)]],
+  { nargs = 1 }
+)

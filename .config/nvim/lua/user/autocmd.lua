@@ -76,7 +76,8 @@ vim.api.nvim_create_autocmd('FileType', {
     if indentation then
         SET_INDENT(buf, indentation[1], indentation[2], false)
     else
-        SET_INDENT(buf, ft_indents['DEFAULT'][1], ft_indents['DEFAULT'][2], false)
+        SET_INDENT(buf, ft_indents['DEFAULT'][1],
+                        ft_indents['DEFAULT'][2], false)
     end
   end
 })

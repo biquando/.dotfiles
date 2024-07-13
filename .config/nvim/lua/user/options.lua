@@ -50,7 +50,7 @@ vim.o.scrolloff = 8
 
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.softtabstop = -1  -- set equal to shiftwidth
+vim.opt.softtabstop = -1 -- set equal to shiftwidth
 vim.opt.expandtab = true
 
 vim.opt.colorcolumn = '81,101'
