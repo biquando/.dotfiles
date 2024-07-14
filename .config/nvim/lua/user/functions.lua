@@ -1,5 +1,6 @@
 local M = {}
 
+-- NOTE: Just use vim.print()
 M.dump = function(tbl)
   if type(tbl) == 'table' then
     local s = '{ '

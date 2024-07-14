@@ -1,0 +1,9 @@
+BasedOnStyle:  LLVM
+AlwaysBreakTemplateDeclarations: true
+BraceWrapping:
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+BreakBeforeBraces: Stroustrup
+IndentWidth:     4
+InsertBraces:    true
