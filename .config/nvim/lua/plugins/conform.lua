@@ -6,6 +6,8 @@ local opts = {
     c = { 'clang-format' },
     cpp = { 'clang-format' },
     markdown = { 'prettier' },
+    javascript = { 'prettier' },
+    typescript = { 'prettier' },
   },
 }
 

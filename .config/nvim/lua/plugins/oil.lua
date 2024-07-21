@@ -31,4 +31,4 @@ oil.setup({
   },
 })
 
-vim.keymap.set('n', '<leader>e', oil.toggle_float)
+vim.keymap.set('n', '<leader>e', oil.toggle_float, { desc = 'Toggle oil' })

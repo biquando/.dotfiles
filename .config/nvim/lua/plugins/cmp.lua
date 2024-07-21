@@ -38,5 +38,6 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'path' },
+    -- { name = 'lazydev', group_index = 0 },
   },
 })

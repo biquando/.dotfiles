@@ -112,7 +112,7 @@ end, { desc = 'Toggle Nvim Tr[e]e' })
 
 vim.keymap.set('n', settingsLeader .. 'f', function()
   SETTINGS.format_on_save = not SETTINGS.format_on_save
-end, { desc = 'Toggle [f]ormatting' })
+end, { desc = 'Toggle [f]ormat on save' })
 
 -- NOTE: See plugins.toggleterm for terminal keymaps
 -- NOTE: See plugins.harpoon for harpoon keymaps

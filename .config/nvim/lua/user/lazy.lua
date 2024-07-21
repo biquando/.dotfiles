@@ -17,7 +17,7 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', config = true },
   { 'folke/which-key.nvim', config = true },
   'tpope/vim-surround',
-  { 'NMAC427/guess-indent.nvim', config = true }, -- alternative: vim-sleuth
+  'tpope/vim-sleuth', -- alternative: NMAC427/guess-indent.nvim
   { 'windwp/nvim-autopairs', config = true },
 
   -- SECTION: LSP
@@ -33,7 +33,11 @@ require('lazy').setup({
       { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
+      {
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = {},
+      },
 
       -- Java !!!
       -- 'mfussenegger/nvim-jdtls',
@@ -109,31 +113,6 @@ require('lazy').setup({
     config = require('user.colors').set_colors,
   },
 
-  -- SECTION: Lualine
-  {
-    'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'catppuccin',
-        component_separators = '|',
-        section_separators = '',
-      },
-      sections = {
-        lualine_x = {
-          function()
-            if vim.o.expandtab then
-              return 'SP ' .. vim.o.tabstop
-            else
-              return 'TS ' .. vim.o.tabstop
-            end
-          end,
-          'filetype',
-        },
-      },
-    },
-  },
-
   -- SECTION: Telescope
   {
     'nvim-telescope/telescope.nvim',
@@ -184,12 +163,6 @@ require('lazy').setup({
     -- See plugins/oil.lua
   },
 
-  -- SECTION: Harpoon
-  {
-    'ThePrimeagen/harpoon',
-    -- See plugins/harpoon.lua
-  },
-
   -- SECTION: Fugutive & Rhubarb
   'tpope/vim-fugitive',
   {
@@ -215,8 +188,8 @@ require('lazy').setup({
     opts = {
       window = {
         options = {
-          number = true,
-          relativenumber = true,
+          number = false,
+          relativenumber = false,
         },
       },
     },
@@ -237,11 +210,12 @@ require('lazy').setup({
         desc = '[L]atex preview',
       })
     end,
-    lazy = true,
-    event = 'BufEnter *.md',
+    ft = 'markdown',
   },
 
   -- SECTION: Separate plugins
+  require('plugins.lualine'),
+  require('plugins.harpoon'),
   require('plugins.conform'),
   require('plugins.markdown-preview'),
   require('plugins.nvim-tree'),
