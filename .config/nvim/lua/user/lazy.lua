@@ -42,6 +42,7 @@ require('lazy').setup({
       -- Java !!!
       -- 'mfussenegger/nvim-jdtls',
     },
+    lazy = true,
   },
 
   -- SECTION: Linting
@@ -63,6 +64,7 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
     },
+    lazy = true,
   },
 
   -- SECTION: Gitsigns
@@ -105,12 +107,14 @@ require('lazy').setup({
         floats = 'transparent',
       },
     },
+    lazy = true,
   },
   {
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
     config = require('user.colors').set_colors,
+    lazy = false,
   },
 
   -- SECTION: Telescope
@@ -164,7 +168,9 @@ require('lazy').setup({
   },
 
   -- SECTION: Fugutive & Rhubarb
-  'tpope/vim-fugitive',
+  {
+    'tpope/vim-fugitive',
+  },
   {
     'tpope/vim-rhubarb',
     config = function()
@@ -193,6 +199,7 @@ require('lazy').setup({
         },
       },
     },
+    lazy = true,
   },
 
   -- SECTION: Headlines (for markdown)
@@ -200,6 +207,7 @@ require('lazy').setup({
     'lukas-reineke/headlines.nvim',
     dependencies = 'nvim-treesitter/nvim-treesitter',
     config = true,
+    ft = 'markdown',
   },
 
   -- SECTION: Nabla (latex rendering)

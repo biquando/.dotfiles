@@ -6,4 +6,5 @@ return {
       side = 'right',
     },
   },
+  lazy = true,
 }
