@@ -4,7 +4,7 @@ return {
     -- SECTION: Options
     require('harpoon').setup({
       menu = {
-        width = math.min(100, vim.api.nvim_win_get_width(0) - 10),
+        width = math.min(80, vim.api.nvim_win_get_width(0) - 10),
       },
       tabline = true,
     })
