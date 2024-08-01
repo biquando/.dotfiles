@@ -59,4 +59,12 @@ mason_lspconfig.setup_handlers({
       filetypes = (servers[server_name] or {}).filetypes,
     })
   end,
+
+  ['clangd'] = function()
+    require('lspconfig').clangd.setup({
+      cmd = { 'clangd', '--clang-tidy' },
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+  end
 })

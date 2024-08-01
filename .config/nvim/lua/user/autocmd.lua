@@ -52,6 +52,7 @@ local ft_indents = {
   arm64    = { 8, true },
   bash     = { 2, true },
   c        = { 4, true },
+  cmake    = { 2, true },
   cpp      = { 4, true },
   fish     = { 4, true },
   haskell  = { 2, true },
