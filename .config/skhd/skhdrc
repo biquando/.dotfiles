@@ -39,8 +39,21 @@ alt - 7 : yabai -m display --space 7
 alt - 8 : yabai -m display --space 8
 alt - 9 : yabai -m display --space 9
 alt - u : yabai -m display --space prev
+alt - q : yabai -m display --space prev
 alt - i : yabai -m display --space next
+alt - e : yabai -m display --space next
 alt - tab : yabai -m display --space recent
+#alt - 1 : skhd -k 'ctrl - 1'
+#alt - 2 : skhd -k 'ctrl - 2'
+#alt - 3 : skhd -k 'ctrl - 3'
+#alt - 4 : skhd -k 'ctrl - 4'
+#alt - 5 : skhd -k 'ctrl - 5'
+#alt - 6 : skhd -k 'ctrl - 6'
+#alt - 7 : skhd -k 'ctrl - 7'
+#alt - 8 : skhd -k 'ctrl - 8'
+#alt - 9 : skhd -k 'ctrl - 9'
+#alt - u : skhd -k 'ctrl - left'
+#alt - i : skhd -k 'ctrl - right'
 
 # Move window to different space
 shift + alt - 1 : yabai -m window --space 1
@@ -57,7 +70,8 @@ shift + alt - i : yabai -m window --space next
 
 # alt - return : osascript -e 'tell application "iTerm" to create window with default profile'
 # alt - return : /Applications/iTerm.app/Contents/MacOS/iTerm2 & disown
-alt - return : kitty --directory="$HOME" & disown
+# alt - return : kitty --directory="$HOME" & disown
+alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 # alt - p : /Applications/Firefox.app/Contents/MacOS/firefox --private-window
 
 # Change layout of current space

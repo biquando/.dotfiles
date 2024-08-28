@@ -40,7 +40,7 @@ sketchybar --default "${default[@]}"
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces.
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+SPACE_ICONS=("󰖟" "" "" "" "5" "6" "7" "8" "9" "10")
 for i in "${!SPACE_ICONS[@]}"
 do
   sid="$(($i+1))"
@@ -84,14 +84,17 @@ sketchybar --add item front_app center \
 # https://felixkratz.github.io/SketchyBar/config/events
 
            # --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
-sketchybar --add item clock right \
+sketchybar \
+           --add item clock right \
            --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
            --add item battery right \
            --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
            --subscribe battery system_woke power_source_change \
            --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change
+           --subscribe volume volume_change \
+           --add item cpu right \
+           --set cpu update_freq=10 script="$PLUGIN_DIR/cpu.sh" \
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

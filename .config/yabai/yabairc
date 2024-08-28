@@ -20,7 +20,7 @@ yabai -m config window_gap 8
 
 # mouse settings
 # yabai -m config mouse_follows_focus on
-yabai -m config focus_follows_mouse autofocus
+# yabai -m config focus_follows_mouse autofocus
 
 yabai -m config mouse_modifier alt
 yabai -m config mouse_action1 move
@@ -33,5 +33,6 @@ yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Reminders$" manage=off
 yabai -m rule --add app="Sideloadly" manage=off
 yabai -m rule --add app="^Clock$" manage=off
+yabai -m rule --add app="IINA" manage=off
 
 sketchybar & disown
