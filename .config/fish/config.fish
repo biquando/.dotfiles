@@ -15,7 +15,7 @@ function __fish_user_interactive
     set -g N "$HOME/Cloud/Documents/notes"
     set -g O "$HOME/Obsidian"
 
-    source ~/.iterm2_shell_integration.fish
+    # source ~/.iterm2_shell_integration.fish
 
     ### Host-dependent ###############################################
     switch $_HOSTNAME
