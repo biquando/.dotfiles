@@ -34,4 +34,4 @@ end
 status is-login; and __fish_user_login
 status is-interactive; and __fish_user_interactive
 
-direnv hook fish | source
+which direnv 1>/dev/null 2>&1 && direnv hook fish | source
