@@ -5,7 +5,6 @@ if status is-interactive
     abbr -a sl ls
     abbr -a tree tree -C --dirsfirst
     abbr -a py "PYTHONSTARTUP=\$PYTHONSTARTUP ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.timeoutlen=0 --no-banner"
-    abbr -a vim nvim
     # abbr -a vimc "cd ~/.config/nvim && nvim ."
     abbr -a p pwd -P
     abbr -a ports "sudo lsof -i -P -n | grep LISTEN | grep ':[0-9]\+\ '"
@@ -23,10 +22,16 @@ if status is-interactive
             abbr -a lt launchtab
             abbr -a armld "ld -lSystem -syslibroot (xcrun --sdk macosx --show-sdk-path) -e _main -arch arm64"
             abbr -a icat "kitty icat"
+            abbr -a vim nvim
         case 'Linux'
             abbr -a myip "ip a | grep 'inet[^6]'"
             abbr -a fdsk "sudo fdisk -l | sed -e '/Disk \/dev\/loop/,+5d'"
             abbr -a fd "fdfind"
             abbr -a sizes "find . -type f -print0 | du -h --files0-from=- | sort -h"
+    end
+
+    switch $_HOSTNAME
+        case 'biquando-u'
+            abbr -a vim nvim
     end
 end
