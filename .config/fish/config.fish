@@ -10,9 +10,7 @@ function __fish_user_interactive
     fish_config theme choose "Catppuccin Macchiato"
 
     ### Variables ####################################################
-    set -g Q "$HOME/Cloud/Documents/UCLA/23-24/Spring"
-    set -g L "$HOME/Cloud/Documents/logs"
-    set -g N "$HOME/Cloud/Documents/notes"
+    set -g Q "$HOME/Cloud/Documents/UCLA/24-25/Fall"
     set -g O "$HOME/Obsidian"
 
     # source ~/.iterm2_shell_integration.fish
