@@ -45,6 +45,15 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
   end
 })
 
+-- Associate .v with verilog
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  group = ft_group,
+  pattern = { '*.v' },
+  callback = function(args)
+    vim.bo[args.buf].filetype = 'verilog'
+  end
+})
+
 -- SECTION: Indentation
 
 local ft_indents = {

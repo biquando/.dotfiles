@@ -16,14 +16,6 @@ M.dump = function(tbl)
   end
 end
 
-M.basename = function(path)
-  return string.gsub(path, '(.*/)(.*)', '%2')
-end
-
-M.ext = function(path)
-  return string.gsub(path, '(.*)(%..+)', '%2')
-end
-
 M.cwd_rel_to_buf = function()
   local buf_rel =
     string.gsub(vim.api.nvim_buf_get_name(0), vim.loop.cwd() .. '/', '')
@@ -39,8 +31,8 @@ M.link_img = function()
   local ATTACHMENTS_FOLDER = 'attachments'
 
   local orig_path = vim.api.nvim_get_current_line()
-  local ext = M.ext(orig_path)
-  local new_filename = os.date('%Y-%m-%d_%H-%M-%S', os.time()) .. ext
+  local ext = vim.fn.fnamemodify(orig_path, ':e')
+  local new_filename = os.date('%Y-%m-%d_%H-%M-%S', os.time()) .. '.' .. ext
   local new_path = ATTACHMENTS_FOLDER .. '/' .. new_filename
   local cwd_rel = M.cwd_rel_to_buf()
   os.execute('mkdir -p ' .. ATTACHMENTS_FOLDER)
