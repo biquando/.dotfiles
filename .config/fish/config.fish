@@ -12,6 +12,7 @@ function __fish_user_interactive
     ### Variables ####################################################
     set -g Q "$HOME/Cloud/Documents/UCLA/24-25/Fall"
     set -g O "$HOME/Obsidian"
+    set -g T "$HOME/Cloud/Documents/MS/ta/152A"
 
     # source ~/.iterm2_shell_integration.fish
 

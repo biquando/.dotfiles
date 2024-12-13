@@ -14,6 +14,7 @@ if status is-interactive
     abbr -a vimc "nvim -c 'cd ~/.config/nvim' ~/.config/nvim"
     abbr -a fishc "nvim -c 'cd ~/.config/fish' ~/.config/fish"
     abbr -a tmuxc "nvim -c 'cd ~/.config/tmux' ~/.config/tmux"
+    abbr -a connection 'printf "%s" (set_color brblack); ping google.com -c 1 -t 1 && printf "%sConnected!%s\n" (set_color green) (set_color normal) || printf "%sNot connected!%s\n" (set_color red) (set_color normal)'
 
     switch $_UNAMESYS
         case 'Darwin'

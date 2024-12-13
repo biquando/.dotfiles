@@ -9,7 +9,11 @@ function __fish_user_set_path
             /Applications/Docker.app/Contents/Resources/bin
         case 'Linux'; set pathlist \
             $HOME/bin \
-            $HOME/.local/bin \
+            $HOME/.local/bin
+    end
+
+    switch $_HOSTNAME
+        case 'biquando-u'; set pathlist --prepend \
             $HOME/services/bin
     end
 

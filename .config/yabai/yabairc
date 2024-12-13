@@ -3,6 +3,7 @@ sudo yabai --load-sa
 
 yabai -m config layout bsp
 yabai -m space 1 --layout stack
+yabai -m space 2 --layout stack
 
 yabai -m config window_placement second_child
 
@@ -35,5 +36,6 @@ yabai -m rule --add app="Sideloadly" manage=off
 yabai -m rule --add app="^Clock$" manage=off
 yabai -m rule --add app="^IINA$" manage=off
 yabai -m rule --add app="^Weather$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
 
 sketchybar & disown

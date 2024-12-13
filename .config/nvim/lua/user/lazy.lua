@@ -204,23 +204,12 @@ require('lazy').setup({
   },
 
   -- SECTION: Headlines (for markdown)
-  {
-    'lukas-reineke/headlines.nvim',
-    dependencies = 'nvim-treesitter/nvim-treesitter',
-    config = true,
-    ft = 'markdown',
-  },
-
-  -- SECTION: Nabla (latex rendering)
-  {
-    'jbyuki/nabla.nvim',
-    config = function()
-      vim.keymap.set('n', '<Leader>l', require('nabla').popup, {
-        desc = '[L]atex preview',
-      })
-    end,
-    ft = 'markdown',
-  },
+  -- {
+  --   'lukas-reineke/headlines.nvim',
+  --   dependencies = 'nvim-treesitter/nvim-treesitter',
+  --   config = true,
+  --   ft = 'markdown',
+  -- },
 
   -- SECTION: Separate plugins
   require('plugins.lualine'),

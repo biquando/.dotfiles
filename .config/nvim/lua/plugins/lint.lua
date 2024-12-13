@@ -1,7 +1,7 @@
 local lint_exists, lint = pcall(require, 'lint')
 if lint_exists then
   lint.linters_by_ft = {
-    python = { 'pylint' },
+    -- python = { 'pylint' },
   }
 
   local pylint = require('lint').linters.pylint
