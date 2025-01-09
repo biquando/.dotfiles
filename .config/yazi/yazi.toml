@@ -1,2 +1,7 @@
+[opener]
+play = [
+    { run = 'open "$@"', desc = "Play", orphan = true, for = "macos" }
+]
+
 [manager]
 show_hidden = false

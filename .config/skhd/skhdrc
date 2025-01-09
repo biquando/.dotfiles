@@ -43,6 +43,7 @@ alt - q : yabai -m display --space prev
 alt - i : yabai -m display --space next
 alt - e : yabai -m display --space next
 alt - tab : yabai -m display --space recent
+alt - w : yabai -m display --space last
 #alt - 1 : skhd -k 'ctrl - 1'
 #alt - 2 : skhd -k 'ctrl - 2'
 #alt - 3 : skhd -k 'ctrl - 3'

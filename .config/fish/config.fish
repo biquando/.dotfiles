@@ -10,7 +10,7 @@ function __fish_user_interactive
     fish_config theme choose "Catppuccin Macchiato"
 
     ### Variables ####################################################
-    set -g Q "$HOME/Cloud/Documents/UCLA/24-25/Fall"
+    set -g Q "$HOME/Cloud/Documents/UCLA/24-25/Winter"
     set -g O "$HOME/Obsidian"
     set -g T "$HOME/Cloud/Documents/MS/ta/152A"
 
