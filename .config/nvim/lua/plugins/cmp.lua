@@ -5,6 +5,7 @@ if not (cmp_exists and luasnip_exists) then
 end
 
 luasnip.config.setup({})
+require("luasnip.loaders.from_vscode").load({paths = "./snippets"})
 
 cmp.setup({
 
@@ -37,6 +38,7 @@ cmp.setup({
 
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'luasnip' },
     { name = 'path' },
     -- { name = 'lazydev', group_index = 0 },
   },

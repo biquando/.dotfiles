@@ -1,0 +1,35 @@
+{
+  "align": {
+    "prefix": "align",
+    "body": [
+      "$$\\begin{align*}",
+      "  $0",
+      "\\end{align*}$$"
+    ]
+  },
+
+  "pmatrix": {
+    "prefix": "pmatrix",
+    "body": [
+      "\\begin{pmatrix}",
+      "  $0",
+      "\\end{pmatrix}"
+    ]
+  },
+
+  "bmatrix": {
+    "prefix": "bmatrix",
+    "body": [
+      "\\begin{bmatrix}",
+      "  $0",
+      "\\end{bmatrix}"
+    ]
+  },
+
+  "frac": {
+    "prefix": "frac",
+    "body": [
+      "\\frac{$1}{$2}$0"
+    ]
+  }
+}
