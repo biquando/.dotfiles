@@ -13,7 +13,7 @@ function __fish_user_set_path
     end
 
     switch $_HOSTNAME
-        case 'biquando-u'; set pathlist --prepend \
+        case 'biquando-u'; set --prepend pathlist \
             $HOME/services/bin
     end
 
