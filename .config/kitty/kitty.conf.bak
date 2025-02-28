@@ -82,7 +82,7 @@ font_size 14.0
 #:     narrow_symbols codepoints [optionally the number of cells]
 
 # disable_ligatures never
-# disable_ligatures always
+disable_ligatures always
 
 #: Choose how you want to handle multi-character ligatures. The
 #: default is to always render them. You can tell kitty to not render
@@ -1018,6 +1018,7 @@ hide_window_decorations titlebar-only
 #: contents of the current tab.
 
 # tab_bar_style fade
+tab_bar_style powerline
 
 #: The tab bar style, can be one of:
 
@@ -1089,6 +1090,7 @@ hide_window_decorations titlebar-only
 #: tab_title_template for how this is rendered.
 
 # tab_title_max_length 0
+tab_title_max_length 20
 
 #: The maximum number of cells that can be used to render the text in
 #: a tab. A value of zero means that no limit is applied.
@@ -2576,7 +2578,7 @@ map shift+cmd+minus       change_font_size all -1.0
 
 
 # BEGIN_KITTY_THEME
-# Base2Tone Sea Dark
+# Default
 include current-theme.conf
 # END_KITTY_THEME
 # active_tab_background #7dc4e4

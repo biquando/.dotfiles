@@ -7,12 +7,13 @@ function __fish_user_interactive
     __fish_user_key_bindings
     # fish_config theme choose tokyonight_night
     # fish_config theme choose "Snow Day"
-    fish_config theme choose "Catppuccin Macchiato"
+    # fish_config theme choose "Catppuccin Macchiato"
+    fish_config theme choose "coolbeans"
 
     ### Variables ####################################################
     set -g O "$HOME/Obsidian"
     set -g Q "$HOME/Cloud/Documents/UCLA/24-25/Winter"
-    set -g R "$HOME/Cloud/Research"
+    set -g R "$HOME/research"
     set -g T "$HOME/Cloud/Documents/MS/ta/152A"
 
     # source ~/.iterm2_shell_integration.fish

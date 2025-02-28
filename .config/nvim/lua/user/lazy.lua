@@ -116,6 +116,12 @@ require('lazy').setup({
     config = require('user.colors').set_colors,
     lazy = false,
   },
+  {
+    'olivercederborg/poimandres.nvim',
+    lazy = false,
+    priority = 1000,
+    config = require('user.colors').set_colors,
+  },
 
   -- SECTION: Telescope
   {
@@ -162,11 +168,11 @@ require('lazy').setup({
   },
 
   -- SECTION: Oil
-  {
-    'stevearc/oil.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    -- See plugins/oil.lua
-  },
+  -- {
+  --   'stevearc/oil.nvim',
+  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
+  --   -- See plugins/oil.lua
+  -- },
 
   -- SECTION: Fugutive & Rhubarb
   {
@@ -210,6 +216,49 @@ require('lazy').setup({
   --   config = true,
   --   ft = 'markdown',
   -- },
+
+  --SECTION: Yazi
+  ---@type LazySpec
+  {
+    'mikavilpas/yazi.nvim',
+    event = 'VeryLazy',
+    keys = {
+      -- 👇 in this section, choose your own keymappings!
+      {
+        '<leader>e',
+        mode = { 'n', 'v' },
+        '<cmd>Yazi<cr>',
+        desc = 'Open yazi at the current file',
+      },
+      -- {
+      --   -- Open in the current working directory
+      --   "<leader>cw",
+      --   "<cmd>Yazi cwd<cr>",
+      --   desc = "Open the file manager in nvim's working directory",
+      -- },
+      -- {
+      --   -- NOTE: this requires a version of yazi that includes
+      --   -- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
+      --   "<c-up>",
+      --   "<cmd>Yazi toggle<cr>",
+      --   desc = "Resume the last yazi session",
+      -- },
+    },
+    ---@type YaziConfig
+    opts = {
+      -- if you want to open yazi instead of netrw, see below for more info
+      open_for_directories = true,
+      -- keymaps = {
+      --   show_help = "<f1>",
+      -- },
+      hooks = {
+        ---@diagnostic disable-next-line: unused-local
+        yazi_opened = function(_preselected_path, buffer, _config)
+          vim.keymap.del('t', '<esc>', { buffer = buffer })
+        end,
+      },
+    },
+  },
 
   -- SECTION: Separate plugins
   require('plugins.lualine'),

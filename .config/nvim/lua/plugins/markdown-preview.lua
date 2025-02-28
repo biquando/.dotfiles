@@ -17,7 +17,7 @@ return {
     vim.keymap.set(
       'n',
       '<Leader>mdp',
-      ':MarkdownPreviewToggle<CR>',
+      ':MarkdownPreview<CR>',
       { desc = '[M]ark[d]own [p]review' }
     )
 

@@ -10,6 +10,7 @@ if status is-interactive
     abbr -a ports "sudo lsof -i -P -n | grep LISTEN | grep ':[0-9]\+\ '"
     abbr -a t 'cut -c 1-$COLUMNS'
     abbr -a vv '. venv/bin/activate.fish'
+    abbr -a vq '. ~/projects/python/quantum/venv/bin/activate.fish'
 
     abbr -a vimc "nvim -c 'cd ~/.config/nvim' ~/.config/nvim"
     abbr -a fishc "nvim -c 'cd ~/.config/fish' ~/.config/fish"

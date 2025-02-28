@@ -22,6 +22,44 @@ local set_catppuccin = function()
   end
 end
 
-M.set_colors = set_catppuccin
+local set_poimandres = function()
+  local poimandres_exists, poimandres = pcall(require, 'poimandres')
+
+  local color_group = vim.api.nvim_create_augroup('PoimandresColors', {})
+  vim.api.nvim_create_autocmd('BufEnter', {
+    command = 'highlight ColorColumn ctermbg=0 guibg=#282c38',
+    group = color_group,
+    pattern = '*',
+  })
+  -- vim.api.nvim_create_autocmd('BufEnter', {
+  --   callback = function(args)
+  --     local buf = vim.bo[args.buf]
+  --     local ft = buf.filetype
+  --     if ft == 'markdown' then
+  --       vim.cmd('TSDisable highlight')
+  --     end
+  --   end,
+  --   group = color_group,
+  --   pattern = '*'
+  -- })
+
+  if poimandres_exists then
+    poimandres.setup()
+    vim.cmd.colorscheme('poimandres')
+  end
+end
+
+local set_default = function()
+  local color_group = vim.api.nvim_create_augroup('Transparency', {})
+  vim.api.nvim_create_autocmd('BufEnter', {
+    command = 'highlight Normal ctermbg=NONE guibg=NONE',
+    group = color_group,
+    pattern = '*',
+  })
+
+  vim.cmd.colorscheme('default')
+end
+
+M.set_colors = set_poimandres
 
 return M
