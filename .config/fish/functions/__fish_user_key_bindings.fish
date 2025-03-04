@@ -18,7 +18,8 @@ function __fish_user_key_bindings
     bind -M insert \cb backward-char
     bind -M insert \cp up-or-search
     bind -M insert \cn down-or-search
-    bind -M insert ctrl-space forward-char  # ctrl+space
+    bind -M insert ctrl-space forward-char
+    bind -M insert -k nul forward-char  # ctrl+space
 
     ### Set fzf key bindings #########################################
     switch $_UNAMESYS
