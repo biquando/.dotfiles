@@ -10,7 +10,9 @@ function __fish_user_set_path
         case 'Linux'; set pathlist \
             $HOME/bin \
             $HOME/.local/bin \
-            $HOME/.cargo/bin
+            $HOME/.cargo/bin \
+            $HOME/.ghcup/bin \
+            $HOME/.cabal/bin
     end
 
     switch $_HOSTNAME
