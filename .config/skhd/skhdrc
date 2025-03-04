@@ -72,6 +72,7 @@ shift + alt - i : yabai -m window --space next
 # alt - return : osascript -e 'tell application "iTerm" to create window with default profile'
 # alt - return : /Applications/iTerm.app/Contents/MacOS/iTerm2 & disown
 # alt - return : kitty --directory="$HOME" & disown
+#alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~ tmux
 alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 # alt - p : /Applications/Firefox.app/Contents/MacOS/firefox --private-window
 
