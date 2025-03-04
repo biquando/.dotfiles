@@ -11,7 +11,8 @@ function __fish_user_set_path
             $HOME/bin \
             $HOME/.local/bin \
             $HOME/.cargo/bin \
-            $HOME/.ghcup/bin
+            $HOME/.ghcup/bin \
+            $HOME/.cabal/bin
     end
 
     switch $_HOSTNAME
