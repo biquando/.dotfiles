@@ -18,7 +18,7 @@ end
 
 M.cwd_rel_to_buf = function()
   local buf_rel =
-    string.gsub(vim.api.nvim_buf_get_name(0), vim.loop.cwd() .. '/', '')
+    string.sub(vim.api.nvim_buf_get_name(0), string.len(vim.loop.cwd()) + 2)
   local _, depth = string.gsub(buf_rel, '/', '')
   local rel_path = ''
   for _ = 1, depth do
