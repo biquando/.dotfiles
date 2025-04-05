@@ -28,6 +28,8 @@ local on_attach = function(_, bufnr)
   -- NOTE: See plugins.conform for formatting
 end
 
+vim.diagnostic.config({ virtual_text = true })
+
 -- SECTION: Servers
 
 local servers = {

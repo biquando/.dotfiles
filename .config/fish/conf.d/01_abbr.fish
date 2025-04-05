@@ -26,6 +26,7 @@ if status is-interactive
             abbr -a icat "kitty icat"
             abbr -a vim nvim
             abbr -a dns "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+            abbr -a ssh "kitten ssh"
         case 'Linux'
             abbr -a myip "ip a | grep 'inet[^6]'"
             abbr -a fdsk "sudo fdisk -l | sed -e '/Disk \/dev\/loop/,+5d'"

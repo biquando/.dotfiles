@@ -2,8 +2,8 @@
 
 | Git          |                        |
 | ------------ | ---------------------- |
-| `gh`         | [g]oto next [H]unk     |
-| `gH`         | [g]oto previous [h]unk |
+| `gh`         | [g]oto next [h]unk     |
+| `gH`         | [g]oto previous [H]unk |
 | `<leader>ph` | [p]review [h]unk       |
 | `:G`         | Open git interface     |
 | `:GB`        | Browse file on GitHub  |

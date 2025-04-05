@@ -51,6 +51,8 @@ return {
     local enterTerm = function(id)
       term.gotoTerminal(id)
       vim.cmd('startinsert')
+      vim.o.scrolloff = 8 -- HACK: For some reason opening the terminal *twice*
+                          -- sets the scrolloff to zero. See user/options.lua.
     end
     vim.keymap.set('n', '<C-n>', function()
       enterTerm(1)
