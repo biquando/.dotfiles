@@ -45,10 +45,10 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
   end
 })
 
--- Associate .v with verilog
+-- Associate .v and .vh with verilog
 vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
   group = ft_group,
-  pattern = { '*.v' },
+  pattern = { '*.v', '*.vh' },
   callback = function(args)
     vim.bo[args.buf].filetype = 'verilog'
   end
