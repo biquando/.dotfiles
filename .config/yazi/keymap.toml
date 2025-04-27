@@ -12,3 +12,13 @@ desc = "Close the current tab, or quit if it's the last"
 on   = [ "<C-c>" ]
 run  = "quit"
 desc = "Quit the process"
+
+[[manager.prepend_keymap]]
+on   = [ "j" ]
+run  = "arrow 1"
+desc = "Down without wrap-around"
+
+[[manager.prepend_keymap]]
+on   = [ "k" ]
+run  = "arrow -1"
+desc = "Up without wrap-around"
