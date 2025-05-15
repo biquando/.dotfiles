@@ -26,6 +26,15 @@
     ]
   },
 
+  "begin": {
+    "prefix": "begin",
+    "body": [
+      "\\begin{$1}",
+      "  $0",
+      "\\end{$1}"
+    ]
+  },
+
   "frac": {
     "prefix": "frac",
     "body": [
