@@ -1,2 +1,2 @@
-Diagnostics:
-  MissingIncludes: Strict
+# Diagnostics:
+#   MissingIncludes: Strict
