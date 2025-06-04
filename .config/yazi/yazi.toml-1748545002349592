@@ -3,7 +3,7 @@ play = [
     { run = 'open "$@"', desc = "Play", orphan = true, for = "macos" }
 ]
 
-[mgr]
+[manager]
 show_hidden = false
 
 [[plugin.prepend_fetchers]]
