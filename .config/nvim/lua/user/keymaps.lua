@@ -76,12 +76,15 @@ vim.keymap.set('n', settingsLeader .. 'm', function()
 end, { desc = 'Toggle [m]ouse' })
 
 vim.keymap.set('n', settingsLeader .. 'd', function()
-  if not vim.diagnostic.is_enabled() then
-    vim.diagnostic.enable()
-  else
-    vim.diagnostic.enable(false)
-  end
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { desc = 'Toggle [d]iagnostics' })
+
+vim.keymap.set('n', settingsLeader .. 'h', function()
+  SETTINGS.hide_diagnostics = not SETTINGS.hide_diagnostics
+  vim.diagnostic.config({
+    virtual_text = not SETTINGS.hide_diagnostics,
+  })
+end, { desc = '[h]ide diagnostic text' })
 
 vim.keymap.set(
   'n',
