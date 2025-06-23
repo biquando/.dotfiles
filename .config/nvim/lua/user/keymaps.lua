@@ -1,15 +1,19 @@
--- [[ Basic Keymaps ]]
--- NOTE: The leader key is set in user.options
+--[[===============]]
+--[[ Basic Keymaps ]]
+--[[===============]]
 
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
+-- Set <space> to <nop>, because <space> is being used as leader
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Yank/Paste from system clipboard
-vim.keymap.set('x', '<leader>p', [["_dP]])
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["+d]])
+vim.keymap.set({ 'n', 'v' }, '<leader>x', [["+x]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
-vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
+vim.keymap.set('n', '<leader>D', [["+D]])
+vim.keymap.set('n', '<leader>X', [["+X]])
+vim.keymap.set({ 'n', 'v' }, '<leader>p', [["+p]])
+vim.keymap.set('n', '<leader>P', [["+P]])
 
 -- Center window on search
 vim.keymap.set('n', 'n', 'nzz')
@@ -38,88 +42,71 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
 -- Move lines up/down/left/right
--- vim.keymap.set('n', '<A-k>', ':m .-2<CR>==')
--- vim.keymap.set('n', '<A-j>', ':m .+1<CR>==')
--- vim.keymap.set('v', '<A-k>', ':m \'<-2<CR>gv=gv')
--- vim.keymap.set('v', '<A-j>', ':m \'>+1<CR>gv=gv')
--- vim.keymap.set('n', '<A-h>', '<<')
--- vim.keymap.set('n', '<A-l>', '>>')
--- vim.keymap.set('v', '<A-h>', '<gv')
--- vim.keymap.set('v', '<A-l>', '>gv')
 vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', '<C-h>', '<gv')
 vim.keymap.set('v', '<C-l>', '>gv')
 
+-- Use <esc> to clear search highlight
 vim.keymap.set('n', '<Esc>', function()
   vim.cmd('noh')
 end, { desc = 'Clear highlight' })
 
--- SECTION: Option keymaps
+-- Terminal keymaps
+vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
+vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]])
+vim.keymap.set('t', '<C-o>', [[<C-\><C-n><C-o>]])
+
+
+--[[=================]]
+--[[ Setting Keymaps ]]
+--[[=================]]
 
 local settingsLeader = '<Leader>,'
 
-vim.keymap.set('n', settingsLeader .. 'w', function()
+local settingKeymap = function(key, desc, action)
+  vim.keymap.set('n', settingsLeader .. key, action, { desc = desc })
+end
+
+settingKeymap('w', 'Toggle [w]rap', function()
   vim.o.wrap = not vim.o.wrap
-end, { desc = 'Toggle [w]rap' })
+end)
 
-vim.keymap.set('n', settingsLeader .. 'r', function()
+settingKeymap('r', 'Toggle [r]elative numbers', function()
   vim.wo.relativenumber = not vim.wo.relativenumber
-end, { desc = 'Toggle [r]elative numbers' })
+end)
 
-vim.keymap.set('n', settingsLeader .. 'n', function()
+settingKeymap('n', 'Toggle line [n]umbers', function()
   vim.wo.number = not vim.wo.number
-end, { desc = 'Toggle line [n]umbers' })
+end)
 
-vim.keymap.set('n', settingsLeader .. 'm', function()
+settingKeymap('m', 'Toggle [m]ouse', function()
   vim.o.mouse = (vim.o.mouse == 'a') and '' or 'a'
-end, { desc = 'Toggle [m]ouse' })
+end)
 
-vim.keymap.set('n', settingsLeader .. 'd', function()
+settingKeymap('d', 'Toggle [d]iagnostics', function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-end, { desc = 'Toggle [d]iagnostics' })
+end)
 
-vim.keymap.set('n', settingsLeader .. 'h', function()
-  SETTINGS.hide_diagnostics = not SETTINGS.hide_diagnostics
+settingKeymap('v', 'Toggle [v]irtual text', function()
+  SETTINGS.virtual_text = not SETTINGS.virtual_text
   vim.diagnostic.config({
-    virtual_text = not SETTINGS.hide_diagnostics,
+    virtual_text = SETTINGS.virtual_text,
   })
-end, { desc = '[h]ide diagnostic text' })
+end)
 
-vim.keymap.set(
-  'n',
-  settingsLeader .. 'l',
-  require('plugins.lint').toggle_lint,
-  { desc = 'Toggle [l]inting hints' }
-)
 
-vim.keymap.set('n', settingsLeader .. 'z', function()
-  local zen_exists, zen = pcall(require, 'zen-mode')
-  if not zen_exists then
-    return
-  end
-  zen.toggle()
-end, { desc = 'Toggle [z]en mode' })
+--[[==================]]
+--[[ External Keymaps ]]
+--[[==================]]
 
-vim.keymap.set('n', settingsLeader .. 'e', function()
-  local nvim_tree_exists, nvim_tree_api = pcall(require, 'nvim-tree.api')
-  if not nvim_tree_exists then
-    return
-  end
-  nvim_tree_api.tree.toggle({
-    find_file = true,
-    update_root = false,
-    focus = true,
-  })
-end, { desc = 'Toggle Nvim Tr[e]e' })
+-- See plugins/cmp.lua
+-- See plugins/lsp.lua
+-- See plugins/gitsigns.lua
+-- See plugins/harpoon.lua
+-- See plugins/telescope.lua
 
-vim.keymap.set('n', settingsLeader .. 'f', function()
-  SETTINGS.format_on_save = not SETTINGS.format_on_save
-end, { desc = 'Toggle [f]ormat on save' })
-
--- NOTE: See plugins.toggleterm for terminal keymaps
--- NOTE: See plugins.harpoon for harpoon keymaps
--- NOTE: See plugins.conform for conform keymaps
--- NOTE: See plugins.markdown-preview for markdown-preview keymaps
--- NOTE: See plugins.nvim-tree for nvim-tree keymaps
--- NOTE: See plugins.leap for leap keymaps
+-- TODO: toggle linting hints
+-- TODO: toggle zen mode
+-- TODO: toggle nvim tree
+-- TODO: toggle format on save

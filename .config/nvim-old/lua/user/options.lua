@@ -1,67 +1,68 @@
+-- [[ Setting options ]]
+-- See `:help vim.o`
+
 -- Set <space> as the leader key
+-- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will
 --        be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set highlight on search
-vim.opt.hlsearch = true
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
 vim.wo.relativenumber = false
 
 -- Enable mouse mode
-vim.opt.mouse = 'a'
+vim.o.mouse = 'a'
 
--- Visually indent wrapped lines
-vim.opt.breakindent = true
+-- Sync clipboard between OS and Neovim.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+-- vim.o.clipboard = 'unnamedplus'
+
+-- Enable break indent
+vim.o.breakindent = true
 
 -- Save undo history
-vim.opt.undofile = true
+vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
 
 -- Decrease update time
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
-vim.opt.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menuone,noselect'
 
--- NOTE: Make sure your terminal supports this
-vim.opt.termguicolors = true
+-- NOTE: You should make sure your terminal supports this
+vim.o.termguicolors = true
 
--- Scroll before cursor reaches bottom/top
-vim.opt.scrolloff = 8
+vim.o.scrolloff = 8
 
--- Default indent is 4 spaces
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = -1 -- set equal to shiftwidth
 vim.opt.expandtab = true
 
--- Show columns at 81 and 101
 vim.opt.colorcolumn = '81,101'
-
--- Show unprintable characters as hex
 vim.opt.display = 'lastline,msgsep,uhex'
-
--- Show trailing spaces and nbsp
 vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = '~', nbsp = '+' }
 
--- Don't show e.g. INSERT in status bar
 vim.opt.showmode = false
 
--- Enable soft wrap
 vim.opt.whichwrap = '<,>,[,]'
 vim.opt.wrap = true
 
--- Highlight current line
 vim.opt.cursorline = true
+
+vim.opt.foldmethod = 'marker'

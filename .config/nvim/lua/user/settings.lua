@@ -1,4 +1,3 @@
 SETTINGS = {
-  format_on_save = false,
-  hide_diagnostics = false,
+  virtual_text = true,
 }

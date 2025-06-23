@@ -1,3 +1,5 @@
+-- SECTION: Indentation
+
 local set_width = function(buf_opts, w)
   buf_opts.shiftwidth = tonumber(w)
   buf_opts.tabstop = tonumber(w)
@@ -38,24 +40,12 @@ end
 
 vim.api.nvim_create_user_command(
   'SP',
-  [[lua SET_INDENT(vim.opt, <f-args>, true, false)]],
-  { nargs = 1 }
-)
-
-vim.api.nvim_create_user_command(
-  'SPT',
   [[lua SET_INDENT(vim.opt, <f-args>, true, true)]],
   { nargs = 1 }
 )
 
 vim.api.nvim_create_user_command(
   'TS',
-  [[lua SET_INDENT(vim.opt, <f-args>, false, false)]],
-  { nargs = 1 }
-)
-
-vim.api.nvim_create_user_command(
-  'TST',
   [[lua SET_INDENT(vim.opt, <f-args>, false, true)]],
   { nargs = 1 }
 )

@@ -12,15 +12,53 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- SECTION: Filetypes
+
+local ft_group = vim.api.nvim_create_augroup('filetypes', { clear = true })
+
+-- Associate .h with C instead of C++
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  group = ft_group,
+  pattern = { '*.h' },
+  callback = function(args)
+    vim.bo[args.buf].filetype = 'c'
+  end
+})
+
+-- Associate .s with arm64 instead of asm on Darwin
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  group = ft_group,
+  pattern = { '*.s' },
+  callback = function(args)
+    if vim.loop.os_uname().sysname == 'Darwin' then
+      vim.bo[args.buf].filetype = 'arm64'
+    end
+  end
+})
+
+-- Associate .lasm with lasm
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  group = ft_group,
+  pattern = { '*.lasm' },
+  callback = function(args)
+    vim.bo[args.buf].filetype = 'lasm'
+  end
+})
+
+-- Associate .v and .vh with verilog
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  group = ft_group,
+  pattern = { '*.v', '*.vh' },
+  callback = function(args)
+    vim.bo[args.buf].filetype = 'verilog'
+  end
+})
 
 -- SECTION: Indentation
-
-local ft_group = vim.api.nvim_create_augroup('Filetypes', { clear = true })
 
 local ft_indents = {
   DEFAULT  = { 4, true },
   arm64    = { 8, true },
-  asm      = { 8, true },
   bash     = { 2, true },
   c        = { 4, true },
   cmake    = { 2, true },

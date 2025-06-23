@@ -1,0 +1,6 @@
+require('user.settings')
+require('user.options')
+require('user.keymaps')
+require('user.commands')
+require('user.autocmd')
+require('user.lazy')
