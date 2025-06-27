@@ -15,7 +15,15 @@ return {
         }
       }
     })
-    vim.lsp.enable({ 'lua_ls', 'clangd', 'pyright' })
+
+    vim.lsp.enable({
+      'bashls',
+      'clangd',
+      'html',
+      'jsonls',
+      'lua_ls',
+      'pyright',
+    })
 
     vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
