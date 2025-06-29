@@ -14,7 +14,7 @@ function __fish_user_interactive
     set -g O "$HOME/Obsidian"
     set -g Q "$HOME/Cloud/Documents/UCLA/24-25/Spring"
     set -g R "$HOME/research"
-    set -g T "$HOME/Cloud/Documents/MS/ta/152A"
+    set -g T "$HOME/Cloud/Documents/MS/ta/181"
 
     # source ~/.iterm2_shell_integration.fish
 

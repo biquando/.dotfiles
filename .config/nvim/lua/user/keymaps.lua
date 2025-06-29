@@ -101,9 +101,10 @@ end)
 --[[==================]]
 
 -- See plugins/cmp.lua
--- See plugins/lsp.lua
 -- See plugins/gitsigns.lua
 -- See plugins/harpoon.lua
+-- See plugins/lsp.lua
+-- See plugins/markdownpreview.lua
 -- See plugins/telescope.lua
 
 -- TODO: toggle linting hints

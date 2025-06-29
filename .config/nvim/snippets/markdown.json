@@ -2,9 +2,9 @@
   "align": {
     "prefix": "align",
     "body": [
-      "$$\\begin{align*}",
+      "\\$\\$\\begin{align*}",
       "  $0",
-      "\\end{align*}$$"
+      "\\end{align*}\\$\\$"
     ]
   },
 

@@ -1,27 +1,22 @@
 return {
   'lewis6991/gitsigns.nvim',
   opts = {
-    signs = {
-      add = { text = '+' },
-      change = { text = '~' },
-      delete = { text = '_' },
-      topdelete = { text = '‾' },
-      changedelete = { text = '~' },
-    },
-
     on_attach = function(bufnr)
-      vim.keymap.set('n', 'gH', require('gitsigns').prev_hunk, {
-        buffer = bufnr,
-        desc = '[G]o to Previous [H]unk',
-      })
-      vim.keymap.set('n', 'gh', require('gitsigns').next_hunk, {
-        buffer = bufnr,
-        desc = '[G]o to Next [h]unk',
-      })
-      vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, {
-        buffer = bufnr,
-        desc = '[P]review [H]unk',
-      })
+      local git = require('gitsigns')
+      local keymapPrefix = '<leader>g'
+      local map = function(key, f, desc)
+        vim.keymap.set('n', keymapPrefix .. key, f, {
+          buffer = bufnr,
+          desc = '[g]it: ' .. desc,
+        })
+      end
+
+      map('n', git.next_hunk, '[n]ext hunk')
+      map('N', git.prev_hunk, 'previous hunk')
+      map('p', git.preview_hunk, '[p]review hunk')
+      map('s', git.stage_hunk, '[s]tage hunk')
+      map('r', git.reset_hunk, '[r]eset hunk')
+      map('b', git.blame, '[b]lame')
     end,
   },
 }
