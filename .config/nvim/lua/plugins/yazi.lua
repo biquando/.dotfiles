@@ -15,7 +15,7 @@ return {
     hooks = {
       ---@diagnostic disable-next-line: unused-local
       yazi_opened = function(_preselected_path, buffer, _config)
-        vim.keymap.del('t', '<esc>', { buffer = buffer })
+        -- vim.keymap.del('t', '<esc>', { buffer = true })
       end,
     },
   },

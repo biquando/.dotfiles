@@ -3,6 +3,14 @@ return {
   event = 'VimEnter',
   version = '1.*',
 
+  dependencies = {
+    {
+      'folke/lazydev.nvim',
+      ft = 'lua',
+      config = true,
+    },
+  },
+
   opts = {
     keymap = {
       preset = 'none',
@@ -21,7 +29,15 @@ return {
     },
 
     sources = {
-      default = { 'lsp', 'snippets', 'path' },
+      default = { 'lazydev', 'lsp', 'snippets', 'path', 'buffer' },
+      providers = {
+        lazydev = {
+          name = "LazyDev",
+          module = "lazydev.integrations.blink",
+          -- make lazydev completions top priority (see `:h blink.cmp`)
+          score_offset = 100,
+        },
+      },
     },
 
     fuzzy = { implementation = 'prefer_rust' },
