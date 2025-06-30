@@ -17,7 +17,8 @@ function __fish_user_set_path
 
     switch $_HOSTNAME
         case 'biquando-u'; set --prepend pathlist \
-            $HOME/services/bin
+            $HOME/services/bin \
+            $HOME/.nvm/versions/node/v22.17.0/bin
     end
 
     fish_add_path -g $pathlist
