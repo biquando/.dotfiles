@@ -1,5 +1,7 @@
 return {
   'ThePrimeagen/harpoon',
+  commit = '1bc17e3',
+
   config = function()
     -- SECTION: Options
     require('harpoon').setup({
@@ -26,26 +28,14 @@ return {
     vim.keymap.set({ 'n', 't' }, '<C-e>', ui.toggle_quick_menu)
 
     -- Goto file
-    vim.keymap.set({ 'n', 't' }, '<C-h>', function()
-      ui.nav_file(1)
-    end)
-    vim.keymap.set({ 'n', 't' }, '<C-j>', function()
-      ui.nav_file(2)
-    end)
-    vim.keymap.set({ 'n', 't' }, '<C-k>', function()
-      ui.nav_file(3)
-    end)
-    vim.keymap.set({ 'n', 't' }, '<C-l>', function()
-      ui.nav_file(4)
-    end)
+    vim.keymap.set({ 'n', 't' }, '<C-h>', function() ui.nav_file(1) end)
+    vim.keymap.set({ 'n', 't' }, '<C-j>', function() ui.nav_file(2) end)
+    vim.keymap.set({ 'n', 't' }, '<C-k>', function() ui.nav_file(3) end)
+    vim.keymap.set({ 'n', 't' }, '<C-l>', function() ui.nav_file(4) end)
 
     -- Left / right
-    vim.keymap.set('n', '<S-h>', function()
-      ui.nav_prev()
-    end)
-    vim.keymap.set('n', '<S-l>', function()
-      ui.nav_next()
-    end)
+    vim.keymap.set('n', '<S-h>', function() ui.nav_prev() end)
+    vim.keymap.set('n', '<S-l>', function() ui.nav_next() end)
 
     -- Terminals
     local enterTerm = function(id)
@@ -55,8 +45,13 @@ return {
                           -- sets the scrolloff to zero. See user/options.lua.
     end
     vim.keymap.set('n', '<C-n>', function()
-      enterTerm(1)
+      local count = vim.v.count
+      if count == 0 then
+        count = SETTINGS.termid
+      else
+        SETTINGS.termid = count
+      end
+      enterTerm(count)
     end)
-    -- vim.keymap.set('n', '<C-m>', function() enterTerm(2) end)
   end,
 }

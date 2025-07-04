@@ -2,6 +2,9 @@ local M = {}
 
 local set_poimandres = function()
   local poimandres_exists, poimandres = pcall(require, 'poimandres')
+  if not poimandres_exists then
+    return
+  end
 
   local color_group = vim.api.nvim_create_augroup('PoimandresColors', {})
   vim.api.nvim_create_autocmd('BufEnter', {
@@ -10,10 +13,8 @@ local set_poimandres = function()
     pattern = '*',
   })
 
-  if poimandres_exists then
-    poimandres.setup()
-    vim.cmd.colorscheme('poimandres')
-  end
+  poimandres.setup()
+  vim.cmd.colorscheme('poimandres')
 end
 
 M.set_colors = set_poimandres
