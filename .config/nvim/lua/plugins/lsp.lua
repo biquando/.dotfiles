@@ -1,3 +1,5 @@
+if vim.g.vscode then return {} end
+
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
@@ -16,13 +18,20 @@ return {
       }
     })
 
+    -- See https://github.com/neovim/nvim-lspconfig/tree/master/lsp
+    -- for a list of preconfigured lsp names from nvim-lspconfig.
     vim.lsp.enable({
-      'bashls',
-      'clangd',
-      'html',
-      'jsonls',
-      'lua_ls',
-      'pyright',
+      'bashls',                   -- bash
+      'clangd',                   -- C/C++
+      'fish_lsp',                 -- fish
+      'html',                     -- html
+      'jsonls',                   -- json
+      'lua_ls',                   -- lua
+      -- 'pyrefly',                  -- python
+      'pyright',                  -- python
+      'rust_analyzer',            -- rust
+      'texlab',                   -- latex
+      'vimls',                    -- vimscript
     })
 
     vim.api.nvim_create_autocmd('LspAttach', {

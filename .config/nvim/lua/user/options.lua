@@ -46,15 +46,17 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = -1 -- set equal to shiftwidth
 vim.opt.expandtab = true
 
--- Show columns at 81 and 101
-vim.opt.colorcolumn = '81,101'
+if not vim.g.vscode then
+  -- Show columns at 81 and 101
+  vim.opt.colorcolumn = '81,101'
+end
 
 -- Show unprintable characters as hex
 vim.opt.display = 'lastline,msgsep,uhex'
 
 -- Show trailing spaces and nbsp
 vim.opt.list = true
-vim.opt.listchars = { tab = '  ', trail = '~', nbsp = '+' }
+vim.opt.listchars = { tab = '> ', trail = '~', nbsp = '+' }
 
 -- Don't show e.g. INSERT in status bar
 vim.opt.showmode = false

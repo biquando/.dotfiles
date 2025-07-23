@@ -31,10 +31,11 @@ local ft_indents = {
   lua      = { 2, true },
   make     = { 8, false },
   markdown = { 2, true },
+  plaintex = { 2, true },
   python   = { 4, true },
   rust     = { 4, true },
   sh       = { 2, true },
-  tex      = { 4, true },
+  tex      = { 2, true },
 }
 
 vim.api.nvim_create_autocmd('FileType', {

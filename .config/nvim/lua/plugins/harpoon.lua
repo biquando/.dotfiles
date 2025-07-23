@@ -1,3 +1,5 @@
+if vim.g.vscode then return {} end
+
 return {
   'ThePrimeagen/harpoon',
   commit = '1bc17e3',

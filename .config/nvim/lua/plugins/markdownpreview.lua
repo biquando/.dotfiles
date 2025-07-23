@@ -1,3 +1,5 @@
+if vim.g.vscode then return {} end
+
 if not vim.fn.executable('npm') then
   return
 end

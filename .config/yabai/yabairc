@@ -17,7 +17,7 @@ yabai -m config top_padding 0
 yabai -m config bottom_padding 0
 yabai -m config left_padding 0
 yabai -m config right_padding 0
-yabai -m config window_gap 8
+yabai -m config window_gap 0
 
 # mouse settings
 # yabai -m config mouse_follows_focus on
@@ -38,5 +38,6 @@ yabai -m rule --add app="^IINA$" manage=off
 yabai -m rule --add app="^Weather$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="Cisco" manage=off
 
 sketchybar & disown
