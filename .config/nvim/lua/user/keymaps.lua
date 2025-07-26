@@ -55,6 +55,7 @@ end, { desc = 'Clear highlight' })
 -- Terminal keymaps
 -- vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
 vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]])
+vim.keymap.set('t', '<C-w><C-w>', [[<C-\><C-n><C-w><esc>]])
 vim.keymap.set('t', '<C-o>', [[<C-\><C-n><C-o>]])
 
 

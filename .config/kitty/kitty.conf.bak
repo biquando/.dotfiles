@@ -1408,6 +1408,7 @@ tab_title_max_length 20
 #: control/#rc-custom-auth> for details.
 
 # allow_remote_control no
+allow_remote_control yes
 
 #: Allow other programs to control kitty. If you turn this on, other
 #: programs can control all aspects of kitty, including sending text
@@ -1599,6 +1600,7 @@ update_check_interval 0
 #: Only the first valid match, in the order specified, is sourced.
 
 # notify_on_cmd_finish never
+notify_on_cmd_finish unfocused
 
 #: Show a desktop notification when a long-running command finishes
 #: (needs shell_integration). The possible values are:
@@ -2578,7 +2580,8 @@ map shift+cmd+minus       change_font_size all -1.0
 
 
 # BEGIN_KITTY_THEME
-# Default
-include current-theme.conf
+include poimandres.conf
 # END_KITTY_THEME
-# active_tab_background #7dc4e4
+active_tab_background #7dc4e4
+# active_tab_background #83e1d8
+tab_bar_style powerline
