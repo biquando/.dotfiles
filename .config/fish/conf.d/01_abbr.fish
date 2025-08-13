@@ -23,7 +23,7 @@ if status is-interactive
             abbr -a myip "ifconfig | grep 'inet[^6]'"
             abbr -a lt launchtab
             abbr -a armld "ld -lSystem -syslibroot (xcrun --sdk macosx --show-sdk-path) -e _main -arch arm64"
-            abbr -a icat "kitty icat"
+            abbr -a icat "kitten icat"
             abbr -a vim nvim
             abbr -a dns "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
             abbr -a ssh "kitten ssh"

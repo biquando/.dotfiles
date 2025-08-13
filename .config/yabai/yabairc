@@ -39,5 +39,8 @@ yabai -m rule --add app="^Weather$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="Cisco" manage=off
+yabai -m rule --add app="^a\.out" manage=off
+yabai -m rule --add title="\[FLOAT\]" manage=off
+yabai -m rule --add title="Bitwarden" manage=off
 
 sketchybar & disown
