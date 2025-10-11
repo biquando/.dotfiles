@@ -11,10 +11,10 @@ function __fish_user_interactive
     fish_config theme choose "coolbeans"
 
     ### Variables ####################################################
-    set -g O "$HOME/Obsidian"
-    set -g Q "$HOME/Cloud/Documents/UCLA/24-25/Spring"
-    set -g R "$HOME/research"
-    set -g T "$HOME/Cloud/Documents/MS/ta/181"
+    set -gx O "$HOME/Obsidian"
+    set -gx Q "$HOME/Cloud/Documents/UCLA/25-26/Fall"
+    set -gx R "$HOME/research"
+    set -gx T "$HOME/Cloud/Documents/MS/ta/152A"
 
     # source ~/.iterm2_shell_integration.fish
 

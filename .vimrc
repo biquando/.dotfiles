@@ -3,29 +3,25 @@ nnoremap <Space> <Nop>
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
-Plug 'catppuccin/vim', {'as': 'catppuccin'}
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 syntax on                                    " syntax highlighting
 filetype plugin indent on                    " language-based indenting
 set colorcolumn=81,101                       " highlight columns 81 and 101
-set cursorline                               " highlight the current row
 set display=uhex                             " show unprintable characters as hex
 set hlsearch                                 " highlight matches when searching
 set ignorecase                               " ignore case when searching
+set incsearch                                " incremental search highlighting
 set list                                     " enable listchars
 set listchars=tab:\\x20\\x20,trail:~,nbsp:+  " show trailing spaces and nbsp
 set mouse=a                                  " enable mouse control
 set ruler                                    " show current cursor position in status bar
 set smartcase                                " enable case-sensitive search if uppercase
-set termguicolors                            " use true colors (iterm2)
 set textwidth=80                             " wrap text at column 80
 set timeoutlen=300                           " timeout for leader
 set ttimeoutlen=0                            " timeout for keycodes
 set updatetime=250                           " write to swap file after this time idle
-
-color catppuccin_macchiato
 
 " List & swap buffer
 nnoremap <Leader>b :ls<CR>:b<Space>
@@ -45,4 +41,4 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 " File type associations
-au BufRead,BufNewFile *.s set ft=arm64
+" au BufRead,BufNewFile *.s set ft=arm64
