@@ -19,6 +19,14 @@
           "python"
         ],
         "path": "./python.json"
+      },
+      {
+        "language": [
+          "latex",
+          "tex",
+          "plaintex"
+        ],
+        "path": "./latex.json"
       }
     ]
   }

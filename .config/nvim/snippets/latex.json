@@ -1,0 +1,44 @@
+{
+  "align": {
+    "prefix": "aa",
+    "body": [
+      "\\begin{align*}",
+      "  $0",
+      "\\end{align*}"
+    ]
+  },
+
+  "pmatrix": {
+    "prefix": "pmat",
+    "body": [
+      "\\begin{pmatrix}",
+      "  $0",
+      "\\end{pmatrix}"
+    ]
+  },
+
+  "bmatrix": {
+    "prefix": "bmat",
+    "body": [
+      "\\begin{bmatrix}",
+      "  $0",
+      "\\end{bmatrix}"
+    ]
+  },
+
+  "begin": {
+    "prefix": "bb",
+    "body": [
+      "\\begin{$1}",
+      "  $0",
+      "\\end{$1}"
+    ]
+  },
+
+  "frac": {
+    "prefix": "//",
+    "body": [
+      "\\frac{$1}{$2}$0"
+    ]
+  }
+}
