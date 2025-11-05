@@ -18,6 +18,18 @@ return {
       }
     })
 
+    vim.lsp.config('texlab', {
+      settings = {
+        texlab = {
+          build = {
+            executable = 'tectonic',
+            args = { '-X', 'build', '--keep-logs', '--keep-intermediates' },
+            onSave = false,
+          },
+        },
+      },
+    })
+
     -- See https://github.com/neovim/nvim-lspconfig/tree/master/lsp
     -- for a list of preconfigured lsp names from nvim-lspconfig.
     vim.lsp.enable({

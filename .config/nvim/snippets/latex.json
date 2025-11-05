@@ -40,5 +40,19 @@
     "body": [
       "\\frac{$1}{$2}$0"
     ]
+  },
+
+  "order of mag": {
+    "prefix": "ee",
+    "body": [
+      "\\times10^{$1}$0"
+    ]
+  },
+
+  "units": {
+    "prefix": "uu",
+    "body": [
+      "\\,\\mathrm{$1}$0"
+    ]
   }
 }

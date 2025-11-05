@@ -1,9 +1,11 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-yabai -m config layout bsp
-yabai -m space 1 --layout stack
-yabai -m space 2 --layout stack
+# yabai -m config layout bsp
+# yabai -m space 1 --layout stack
+# yabai -m space 2 --layout stack
+# yabai -m config layout stack
+yabai -m config layout stack
 
 yabai -m config window_placement second_child
 
@@ -39,7 +41,9 @@ yabai -m rule --add app="^Weather$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="Cisco" manage=off
+yabai -m rule --add app="^Phone$" manage=off
 yabai -m rule --add app="^a\.out" manage=off
+yabai -m rule --add app="^Python$" manage=off
 yabai -m rule --add title="\[FLOAT\]" manage=off
 yabai -m rule --add title="Bitwarden" manage=off
 

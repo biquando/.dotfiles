@@ -12,9 +12,11 @@ function __fish_user_interactive
 
     ### Variables ####################################################
     set -gx O "$HOME/Obsidian"
-    set -gx Q "$HOME/Cloud/Documents/UCLA/25-26/Fall"
-    set -gx R "$HOME/research"
-    set -gx T "$HOME/Cloud/Documents/MS/ta/152A"
+    set -gx Q "$HOME/Sync/Documents/UCLA/25-26/Fall"
+    set -gx R "$HOME/Sync/Research"
+    set -gx T "$HOME/Sync/Documents/MS/ta/152A"
+    set -gx D "$HOME/Downloads"
+    set -gx P "$HOME/Sync/Research/quantum/03_trainium"
 
     # source ~/.iterm2_shell_integration.fish
 

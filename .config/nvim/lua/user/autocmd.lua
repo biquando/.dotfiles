@@ -13,9 +13,22 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 
+-- SECTION: Filetype actions
+-- It's better to use after/ftplugin for individual filetypes
+local ft_group = vim.api.nvim_create_augroup('Filetypes', { clear = true })
+
+-- tex/plaintex/latex
+vim.api.nvim_create_autocmd('FileType', {
+  group = ft_group,
+  pattern = { '*.tex' },
+  callback = function(_)
+    vim.o.indentexpr = ''
+  end
+})
+
+
 -- SECTION: Indentation
 
-local ft_group = vim.api.nvim_create_augroup('Filetypes', { clear = true })
 
 local ft_indents = {
   DEFAULT  = { 4, true },

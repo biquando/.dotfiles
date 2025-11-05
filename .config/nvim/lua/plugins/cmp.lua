@@ -24,10 +24,10 @@ return {
 
       ['<C-space>'] = { 'accept', 'show', 'fallback' },
       ['<Tab>'] = { 'snippet_forward', 'accept', 'fallback' },
-      ['<Enter>'] = { 'accept', 'fallback' },
+      -- ['<Enter>'] = { 'accept', 'fallback' },
 
       ['<C-x>'] = { 'cancel', 'fallback' },
-      ['<Esc>'] = { 'cancel', 'fallback' },
+      -- ['<Esc>'] = { 'cancel', 'fallback' },
     },
 
     completion = {

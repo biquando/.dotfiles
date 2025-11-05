@@ -76,17 +76,22 @@ def plot_continuous(f, a, b, dx=0.0001):
 
 # === Physics ==================================================================
 
-__g = 9.81
-__u0 = 4*pi*10**-7
-__e0 = 8.85e-12
-__c = 3e8
+g = 9.81
+u0 = 4*pi*10**-7
+e0 = 8.8541878188e-12
+c = 299792458
+h = 6.62607015e-34
+hbar = h / (2 * pi)
+eV = 1.602176634e-19
+m_e = 9.1093837139e-31
+m_p = 1.67262192595e-27
 
 # Calculates the Lorentz factor
 #   u:  speed of the reference frame
-def __lorentz(u):
-    return 1 / sqrt(1 - (u/__c)**2)
+def lorentz(u):
+    return 1 / sqrt(1 - (u/c)**2)
 
 # Calculates the speed of a reference frame
 #   gamma:  the Lorentz factor
-def __lorentz_(gamma):
+def lorentz_(gamma):
     return 3e8 * sqrt(1 - (1/gamma)**2)
