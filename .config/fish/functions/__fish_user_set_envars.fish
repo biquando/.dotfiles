@@ -4,6 +4,7 @@ function __fish_user_set_envars
     set -gx RCLONE_FAST_LIST 1
 
     set -gx PYTHONSTARTUP $HOME/.pythonrc
+    set -gx PYTHONPATH $HOME/.local/share/python
 
     set -gx C_INCLUDE_PATH /usr/local/include /opt/homebrew/include $C_INCLUDE_PATH
     set -gx CPLUS_INCLUDE_PATH /usr/local/include /opt/homebrew/include $CPLUS_INCLUDE_PATH

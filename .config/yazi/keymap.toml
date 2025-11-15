@@ -28,3 +28,8 @@ desc = "Down without wrap-around"
 on   = [ "k" ]
 run  = "arrow -1"
 desc = "Up without wrap-around"
+
+[[mgr.prepend_keymap]]
+on   = [ "<Space>" ]
+run  = "cd --interactive"
+desc = "Goto file"
