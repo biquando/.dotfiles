@@ -1,5 +1,14 @@
+try:
+    import os
+    import runpy
+    _home = os.environ['HOME']
+    runpy.run_path(_home + '/.dotfiles/venv/bin/activate_this.py')
+except FileNotFoundError as err:
+    print(err)
+
 import numpy as np
 from math import *
+from sympy import *
 from functools import reduce
 import os
 
@@ -7,7 +16,10 @@ import matplotlib
 import matplotlib.pyplot as plt
 plt.ion()
 os.environ['MPLBACKEND_KITTY_SIZING'] = 'manual'
-matplotlib.use('module://matplotlib-backend-kitty')
+try:
+    matplotlib.use('module://matplotlib-backend-kitty')
+except ModuleNotFoundError as _:
+    pass
 
 R = radians
 D = degrees
@@ -92,6 +104,7 @@ hbar = h / (2 * pi)
 eV = 1.602176634e-19
 m_e = 9.1093837139e-31
 m_p = 1.67262192595e-27
+m_n = 1.67492750056e-27
 k_b = 1.380649e-23
 k_e = 1/(4*pi*e0)
 N_A = 6.02214076e23
@@ -105,4 +118,4 @@ def lorentz(u):
 # Calculates the speed of a reference frame
 #   gamma:  the Lorentz factor
 def lorentz_(gamma):
-    return 3e8 * sqrt(1 - (1/gamma)**2)
+    return c * sqrt(1 - (1/gamma)**2)
