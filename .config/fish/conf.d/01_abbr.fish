@@ -4,7 +4,7 @@ if status is-interactive
     abbr -a l ls
     abbr -a sl ls
     abbr -a tree tree -C --dirsfirst
-    abbr -a py "PYTHONSTARTUP=\$PYTHONSTARTUP ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.timeoutlen=0 --no-banner"
+    abbr -a py "source ~/.dotfiles/venv/bin/activate.fish && ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.timeoutlen=0 --no-banner; deactivate"
     # abbr -a vimc "cd ~/.config/nvim && nvim ."
     abbr -a p pwd -P
     abbr -a ports "sudo lsof -i -P -n | grep LISTEN | grep ':[0-9]\+\ '"
