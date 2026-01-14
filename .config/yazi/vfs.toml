@@ -1,0 +1,13 @@
+[services.uaptt]
+type = "sftp"
+host = "biquando-u"
+user = "biqua"
+port = 57589
+key_file = "~/.ssh/id_rsa"
+
+[services.bora]
+type = "sftp"
+host = "bora.cs.ucla.edu"
+user = "biquando"
+port = 22
+key_file = "~/.ssh/id_rsa"

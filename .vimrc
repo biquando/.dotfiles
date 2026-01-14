@@ -24,7 +24,7 @@ set ttimeoutlen=0                            " timeout for keycodes
 set updatetime=250                           " write to swap file after this time idle
 
 " List & swap buffer
-nnoremap <Leader>b :ls<CR>:b<Space>
+nnoremap <Leader><Space> :ls<CR>:b<Space>
 
 " Make j and k move by visual lines
 nnoremap <expr> j (v:count == 0 ? 'g<down>' : '<down>')
@@ -39,6 +39,3 @@ inoremap <C-F> <Right>
 " Set line cursor in insert mode and block cursor in normal mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
-
-" File type associations
-" au BufRead,BufNewFile *.s set ft=arm64

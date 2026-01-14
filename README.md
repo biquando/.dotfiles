@@ -1,7 +1,32 @@
+## List of tool configs
+
+High-priority:
+- nvim
+- fish
+- skhd
+- yabai
+- sketchybar
+- yazi
+- kitty
+
+Medium-priority:
+- python
+- vim
+- tmux
+
+Low-priority:
+- raycast
+- clang
+- ghostty
+
+
 ### Setup
 
 Vim:
-- Install vim-plug: `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+- Install vim-plug:
+```bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 - Reload with: `:PlugInstall`
 
 Tmux:

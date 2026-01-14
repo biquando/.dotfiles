@@ -39,6 +39,7 @@ return {
       'html',                     -- html
       'jsonls',                   -- json
       'lua_ls',                   -- lua
+      'ocamllsp',                 -- ocaml
       -- 'pyrefly',                  -- python
       'pyright',                  -- python
       'rust_analyzer',            -- rust
@@ -56,15 +57,17 @@ return {
 
           local tele = require('telescope.builtin')
 
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-          map('gr', tele.lsp_references, '[G]oto [R]eferences')
-          map('gI', tele.lsp_implementations, '[G]oto [I]mplementation')
-          map('gd', tele.lsp_definitions, '[G]oto [d]efinition')
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-          map('gO', tele.lsp_document_symbols, 'Open Document Symbols')
-          map('gW', tele.lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
+          map('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
+          map('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction')
+          map('gr', tele.lsp_references, '[g]oto [r]eferences')
+          map('gI', tele.lsp_implementations, '[g]oto [I]mplementation')
+          map('gd', tele.lsp_definitions, '[g]oto [d]efinition')
+          map('gD', vim.lsp.buf.declaration, '[g]oto [D]eclaration')
+          -- map('gs', tele.lsp_document_symbols, '[g]oto document [s]ymbols')
           map('gl', vim.diagnostic.open_float, 'Open Diagnostic')
+
+          map('<leader>sF', function() tele.lsp_document_symbols({symbols='function'}) end, '[s]earch [F]unctions')
+          map('<leader>sW', tele.lsp_dynamic_workspace_symbols, '[s]earch [W]orkspace Symbols')
         end,
       })
 

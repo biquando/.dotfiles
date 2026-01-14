@@ -17,10 +17,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- It's better to use after/ftplugin for individual filetypes
 local ft_group = vim.api.nvim_create_augroup('Filetypes', { clear = true })
 
+vim.filetype.add({ extension = { v = "verilog" } })
+vim.filetype.add({ extension = { slq = "silq" } })
 -- tex/plaintex/latex
 vim.api.nvim_create_autocmd('FileType', {
   group = ft_group,
-  pattern = { '*.tex' },
+  pattern = "tex",
   callback = function(_)
     vim.o.indentexpr = ''
   end
@@ -44,6 +46,7 @@ local ft_indents = {
   lua      = { 2, true },
   make     = { 8, false },
   markdown = { 2, true },
+  ocaml    = { 2, true },
   plaintex = { 2, true },
   python   = { 4, true },
   rust     = { 4, true },

@@ -4,6 +4,7 @@ function __fish_user_set_path
             $HOME/bin \
             $HOME/.local/bin \
             $HOME/.cargo/bin \
+            $HOME/.ghcup/bin \
             /opt/homebrew/bin \
             /opt/homebrew/sbin \
             /Applications/Docker.app/Contents/Resources/bin

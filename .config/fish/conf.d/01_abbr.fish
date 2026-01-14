@@ -4,7 +4,7 @@ if status is-interactive
     abbr -a l ls
     abbr -a sl ls
     abbr -a tree tree -C --dirsfirst
-    abbr -a py "source ~/.dotfiles/venv/bin/activate.fish && ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.timeoutlen=0 --no-banner; deactivate"
+    abbr -a py "source ~/.dotfiles/venv/bin/activate.fish && PYTHONSTARTUP=\"$HOME/.pythonrc\" ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.timeoutlen=0 --no-banner; deactivate"
     # abbr -a vimc "cd ~/.config/nvim && nvim ."
     abbr -a p pwd -P
     abbr -a ports "sudo lsof -i -P -n | grep LISTEN | grep ':[0-9]\+\ '"
@@ -12,9 +12,12 @@ if status is-interactive
     abbr -a vv '. venv/bin/activate.fish'
     abbr -a vq '. ~/projects/python/quantum/venv/bin/activate.fish'
 
-    abbr -a vimc "yazi ~/.config/nvim"
-    abbr -a fishc "yazi ~/.config/fish"
-    abbr -a tmuxc "yazi ~/.config/tmux"
+    # abbr -a vimc "yazi ~/.config/nvim"
+    # abbr -a fishc "yazi ~/.config/fish"
+    # abbr -a tmuxc "yazi ~/.config/tmux"
+    abbr -a vimc "nvim -c 'cd ~/.config/nvim' ~/.config/nvim"
+    abbr -a fishc "nvim -c 'cd ~/.config/fish' ~/.config/fish"
+    abbr -a tmuxc "nvim -c 'cd ~/.config/tmux' ~/.config/tmux"
 
     switch $_UNAMESYS
         case 'Darwin'

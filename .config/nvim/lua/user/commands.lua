@@ -1,3 +1,10 @@
+vim.api.nvim_create_user_command(
+  'W', [[w]], { nargs = '?' }
+)
+
+
+-- Indentation commands
+
 local set_width = function(buf_opts, w)
   buf_opts.shiftwidth = tonumber(w)
   buf_opts.tabstop = tonumber(w)

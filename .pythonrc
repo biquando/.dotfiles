@@ -1,5 +1,7 @@
 import numpy as np
+import math
 from math import *
+import sympy
 from sympy import *
 from functools import reduce
 import os
@@ -101,6 +103,8 @@ k_b = 1.380649e-23
 k_e = 1/(4*pi*e0)
 N_A = 6.02214076e23
 atm = 101325
+sigma = 5.670374419e-8
+G = 6.67430e-11
 
 # Calculates the Lorentz factor
 #   u:  speed of the reference frame

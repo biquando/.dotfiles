@@ -9,6 +9,7 @@ Checks: >
   -bugprone-easily-swappable-parameters,
   -misc-non-private-member-variables-in-classes,
   -misc-no-recursion,
+  -misc-use-anonymous-namespace,
   -modernize-use-nodiscard,
   -modernize-use-trailing-return-type,
 

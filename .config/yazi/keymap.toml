@@ -1,13 +1,35 @@
-# For toggle-pane.yazi
+### toggle-pane.yazi
+
 [[mgr.prepend_keymap]]
-on   = "T"
+on   = "="
 run  = "plugin toggle-pane max-preview"
 desc = "Maximize or restore the preview pane"
+
+
+### zoom.yazi
+
+[[mgr.prepend_keymap]]
+on   = "+"
+run  = "plugin zoom 1"
+desc = "Zoom in hovered file"
+
+[[mgr.prepend_keymap]]
+on   = "-"
+run  = "plugin zoom -1"
+desc = "Zoom out hovered file"
+
+
+
 
 [[mgr.prepend_keymap]]
 on   = [ "l" ]
 run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
+
+[[mgr.prepend_keymap]]
+on   = [ "T" ]
+run  = "tab_create"
+desc = "Create tab at default directory"
 
 [[mgr.prepend_keymap]]
 on   = [ "q" ]
@@ -33,3 +55,8 @@ desc = "Up without wrap-around"
 on   = [ "<Space>" ]
 run  = "cd --interactive"
 desc = "Goto file"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "s" ]
+run  = "cd sftp://uaptt"
+desc = "Connect to uaptt"
