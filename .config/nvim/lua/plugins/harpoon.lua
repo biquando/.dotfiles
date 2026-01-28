@@ -46,7 +46,7 @@ return {
       vim.o.scrolloff = 8 -- HACK: For some reason opening the terminal *twice*
                           -- sets the scrolloff to zero. See user/options.lua.
     end
-    vim.keymap.set('n', '<C-;>', function()
+    local open_term = function()
       local count = vim.v.count
       if count == 0 then
         count = SETTINGS.termid
@@ -54,6 +54,8 @@ return {
         SETTINGS.termid = count
       end
       enterTerm(count)
-    end)
+    end
+    vim.keymap.set('n', '<C-;>', open_term)
+    vim.keymap.set('n', '<C-\\>', open_term) -- tmux doesn't support <C-;>
   end,
 }
