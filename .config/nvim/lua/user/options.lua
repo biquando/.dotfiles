@@ -67,3 +67,6 @@ vim.opt.wrap = true
 
 -- Highlight current line
 vim.opt.cursorline = true
+
+-- Unfold everything by default
+vim.o.foldlevelstart = 99

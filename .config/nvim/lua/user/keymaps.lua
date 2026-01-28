@@ -53,7 +53,7 @@ vim.keymap.set('n', '<Esc>', function()
 end, { desc = 'Clear highlight' })
 
 -- Terminal keymaps
--- vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
+vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
 vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]])
 vim.keymap.set('t', '<C-w><C-w>', [[<C-\><C-n><C-w><esc>]])
 vim.keymap.set('t', '<C-o>', [[<C-\><C-n><C-o>]])
@@ -97,6 +97,33 @@ settingKeymap('v', 'Toggle [v]irtual text', function()
     virtual_text = SETTINGS.virtual_text,
   })
 end)
+
+
+--[[==========================]]
+--[[ Terminal Focusing Keymap ]]
+--[[==========================]]
+
+vim.keymap.set('n', '<C-n>', function()
+  local tabpage = vim.api.nvim_get_current_tabpage()
+  local local_wins = vim.api.nvim_tabpage_list_wins(tabpage)
+  local found_terminal = false
+  for _, win_id in ipairs(local_wins) do
+    local buf_id = vim.api.nvim_win_get_buf(win_id)
+    local buf_name = vim.api.nvim_buf_get_name(buf_id)
+    if string.sub(buf_name, 1, 7) == 'term://' then
+      vim.api.nvim_set_current_win(win_id)
+      vim.cmd('startinsert')
+      found_terminal = true
+      break
+    end
+  end
+
+  if not found_terminal then
+    print('Could not find any open terminals.')
+  end
+end)
+
+
 
 
 --[[==================]]

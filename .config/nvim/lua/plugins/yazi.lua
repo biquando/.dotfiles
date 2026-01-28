@@ -14,11 +14,11 @@ return {
 
   opts = {
     open_for_directories = true,
-    hooks = {
-      ---@diagnostic disable-next-line: unused-local
-      yazi_opened = function(_preselected_path, buffer, _config)
-        -- vim.keymap.del('t', '<esc>', { buffer = true })
-      end,
-    },
+    -- hooks = {
+    --   ---@diagnostic disable-next-line: unused-local
+    --   yazi_opened = function(_preselected_path, buffer, _config)
+    --     -- vim.keymap.del('t', '<esc>', { buffer = true })
+    --   end,
+    -- },
   },
 }

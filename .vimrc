@@ -8,7 +8,7 @@ call plug#end()
 
 syntax on                                    " syntax highlighting
 filetype plugin indent on                    " language-based indenting
-set colorcolumn=81,101                       " highlight columns 81 and 101
+" set colorcolumn=81,101                       " highlight columns 81 and 101
 set display=uhex                             " show unprintable characters as hex
 set hlsearch                                 " highlight matches when searching
 set ignorecase                               " ignore case when searching

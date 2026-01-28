@@ -19,14 +19,15 @@ local ft_group = vim.api.nvim_create_augroup('Filetypes', { clear = true })
 
 vim.filetype.add({ extension = { v = "verilog" } })
 vim.filetype.add({ extension = { slq = "silq" } })
+vim.filetype.add({ extension = { tex = "latex" } })
 -- tex/plaintex/latex
-vim.api.nvim_create_autocmd('FileType', {
-  group = ft_group,
-  pattern = "tex",
-  callback = function(_)
-    vim.o.indentexpr = ''
-  end
-})
+-- vim.api.nvim_create_autocmd('FileType', {
+--   group = ft_group,
+--   pattern = "tex",
+--   callback = function(_)
+--     vim.o.indentexpr = ''
+--   end
+-- })
 
 
 -- SECTION: Indentation

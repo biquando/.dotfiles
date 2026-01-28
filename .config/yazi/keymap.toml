@@ -57,6 +57,11 @@ run  = "cd --interactive"
 desc = "Goto file"
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "s" ]
+on   = [ "g", "u" ]
 run  = "cd sftp://uaptt"
 desc = "Connect to uaptt"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "b" ]
+run  = "cd sftp://bora"
+desc = "Connect to bora"
