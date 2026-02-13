@@ -11,6 +11,7 @@ if status is-interactive
     abbr -a t 'cut -c 1-$COLUMNS'
     abbr -a vv '. venv/bin/activate.fish'
     abbr -a vq '. ~/projects/python/quantum/venv/bin/activate.fish'
+    abbr -a stt 'kitten @ set-tab-title'
 
     # abbr -a vimc "yazi ~/.config/nvim"
     # abbr -a fishc "yazi ~/.config/fish"
@@ -30,6 +31,7 @@ if status is-interactive
             abbr -a dns "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
             abbr -a ssh "kitten ssh"
             abbr -a tectonic "tectonic -X"
+            abbr -a tec 'tectonic -X build && tectonic -X watch'
         case 'Linux'
             abbr -a myip "ip a | grep 'inet[^6]'"
             abbr -a fdsk "sudo fdisk -l | sed -e '/Disk \/dev\/loop/,+5d'"

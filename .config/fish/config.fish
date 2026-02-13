@@ -11,7 +11,7 @@ function __fish_user_interactive
     fish_config theme choose "coolbeans"
 
     ### Variables ####################################################
-    set -gx O "$HOME/Obsidian"
+    set -gx N "$HOME/Obsidian"
     set -gx Q "$HOME/Sync/Documents/UCLA/25-26/Winter"
     set -gx R "$HOME/Sync/Research/quantum"
     set -gx T "$HOME/Sync/Documents/MS/ta"

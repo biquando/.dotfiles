@@ -119,7 +119,10 @@ vim.keymap.set('n', '<C-n>', function()
   end
 
   if not found_terminal then
-    print('Could not find any open terminals.')
+    local buf = vim.api.nvim_create_buf(true, true)
+    vim.api.nvim_open_win(buf, true, { split = "right" })
+    vim.fn.jobstart(vim.o.shell, { term = true })
+    vim.cmd.startinsert()
   end
 end)
 
@@ -136,6 +139,7 @@ end)
 -- See plugins/lsp.lua
 -- See plugins/markdownpreview.lua
 -- See plugins/telescope.lua
+-- See plugins/undotree.lua
 
 -- TODO: toggle linting hints
 -- TODO: toggle zen mode
