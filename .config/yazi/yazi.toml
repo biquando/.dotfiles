@@ -1,6 +1,6 @@
 [opener]
 play = [
-    { run = 'open "$@"', desc = "Play", orphan = true, for = "macos" }
+    { run = 'open %s', desc = "Play", orphan = true, for = "macos" }
 ]
 
 [mgr]
@@ -15,6 +15,15 @@ run  = "git"
 id   = "git"
 name = "*/"
 run  = "git"
+
+# This doesn't seem to work
+[[plugin.prepend_previewers]]
+url = "~/mnt/**"
+run = "noop"
+
+[[plugin.prepend_preloaders]]
+url = "~/mnt/**"
+run = "noop"
 
 [preview]
 max_width  = 1000

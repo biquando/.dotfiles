@@ -19,12 +19,36 @@ desc = "Maximize or restore the preview pane"
 # desc = "Zoom out hovered file"
 
 
-
+# Smart enter
 
 [[mgr.prepend_keymap]]
 on   = [ "l" ]
 run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
+
+
+
+# Forward and back
+
+[[mgr.prepend_keymap]]
+on   = [ "<C-o>" ]
+run  = "back"
+desc = "Back to previous directory"
+
+[[mgr.prepend_keymap]]
+on   = [ "<C-i>" ]
+run  = "forward"
+desc = "forward to next directory"
+
+
+
+# Quick look
+
+[[mgr.prepend_keymap]]
+on = "<C-p>"
+run = "shell -- qlmanage -p %s"
+
+
 
 [[mgr.prepend_keymap]]
 on   = [ "T" ]
@@ -55,6 +79,10 @@ desc = "Up without wrap-around"
 on   = [ "<Space>" ]
 run  = "cd --interactive"
 desc = "Goto file"
+
+
+
+# Remotes
 
 [[mgr.prepend_keymap]]
 on   = [ "g", "u" ]

@@ -22,6 +22,12 @@ Low-priority:
 
 ### Setup
 
+Utilities:
+- fzf
+- ripgrep
+- fd
+- rlwrap
+
 Vim:
 - Install vim-plug:
 ```bash
@@ -32,11 +38,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 Tmux:
 - Install TPM: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 - Reload with: `<Leader>I`
-
-Utilities:
-- fzf
-- ripgrep
-- fd
 
 Python interactive venv:
 ```bash
