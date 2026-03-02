@@ -15,6 +15,9 @@ vim.keymap.set('n', '<leader>X', [["+X]])
 vim.keymap.set({ 'n', 'v' }, '<leader>p', [["+p]])
 vim.keymap.set('n', '<leader>P', [["+P]])
 
+-- Save with ctrl+s
+vim.keymap.set('n', '<C-s>', ':w<CR>')
+
 -- Center window on search
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')

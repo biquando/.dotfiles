@@ -13,6 +13,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 
+-- SECTION: Close terminal when shell exits
+vim.api.nvim_create_autocmd('TermClose', {
+  callback = function()
+    vim.cmd('bdelete')
+  end
+})
+
+
 -- SECTION: Filetype actions
 -- It's better to use after/ftplugin for individual filetypes
 local ft_group = vim.api.nvim_create_augroup('Filetypes', { clear = true })

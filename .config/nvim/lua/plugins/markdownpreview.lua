@@ -22,13 +22,6 @@ return {
       ':MarkdownPreview<CR>',
       { desc = '[M]ark[d]own [p]review' }
     )
-
-    -- vim.keymap.set(
-    --   'n',
-    --   '<Leader>mdi',
-    --   require('user.functions').link_img,
-    --   { desc = '[M]ark[d]own [i]mage link' }
-    -- )
   end,
 
   ft = { 'markdown' },

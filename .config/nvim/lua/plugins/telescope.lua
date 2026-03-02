@@ -3,7 +3,7 @@ if vim.g.vscode then return {} end
 return {
   'nvim-telescope/telescope.nvim',
   version = '*',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   dependencies = {
     'nvim-lua/plenary.nvim',
     {

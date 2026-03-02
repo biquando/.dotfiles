@@ -20,12 +20,10 @@ require("lazy").setup({
     { import = "plugins" },
 
     -- Simple plugins
-    'tpope/vim-surround',
+    { 'tpope/vim-surround', event = 'VeryLazy' },
     'tpope/vim-sleuth', -- alternative: NMAC427/guess-indent.nvim
-    'tpope/vim-fugitive',
-    { 'numToStr/Comment.nvim', config = true },
-    { 'folke/which-key.nvim', config = true },
-    { 'windwp/nvim-autopairs', config = true },
+    { 'tpope/vim-fugitive', event = 'VeryLazy' },
+    { 'windwp/nvim-autopairs', event = 'VeryLazy', config = true },
   },
 
   rocks = {

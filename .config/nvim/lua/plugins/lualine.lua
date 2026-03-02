@@ -2,6 +2,7 @@ if vim.g.vscode then return {} end
 
 return {
   'nvim-lualine/lualine.nvim',
+  event = 'VeryLazy',
   opts = {
     options = {
       icons_enabled = false,

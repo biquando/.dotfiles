@@ -2,6 +2,7 @@ if vim.g.vscode then return {} end
 
 return {
   'neovim/nvim-lspconfig',
+  event = 'VeryLazy',
   dependencies = {
     { 'williamboman/mason.nvim', config = true },
     {
@@ -9,7 +10,7 @@ return {
       opts = {
         notification = {
           override_vim_notify = true,
-        }
+        },
       },
     },
   },
@@ -20,7 +21,10 @@ return {
         Lua = {
           runtime = {
             version = 'LuaJIT',
-          }
+          },
+          diagnostics = {
+            globals = { 'vim' },
+          },
         }
       }
     })

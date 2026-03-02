@@ -70,3 +70,6 @@ vim.opt.cursorline = true
 
 -- Unfold everything by default
 vim.o.foldlevelstart = 99
+
+-- Floating window borders
+vim.o.winborder = 'rounded'

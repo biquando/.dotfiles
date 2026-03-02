@@ -2,7 +2,7 @@ if vim.g.vscode then return {} end
 
 return {
   'saghen/blink.cmp',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   version = '1.*',
 
   dependencies = {
