@@ -12,12 +12,11 @@ if status is-interactive
     abbr -a vv '. venv/bin/activate.fish'
     abbr -a vq '. ~/projects/python/quantum/venv/bin/activate.fish'
 
-    # abbr -a vimc "yazi ~/.config/nvim"
-    # abbr -a fishc "yazi ~/.config/fish"
-    # abbr -a tmuxc "yazi ~/.config/tmux"
     abbr -a vimc "nvim -c 'cd ~/.config/nvim' ~/.config/nvim"
     abbr -a fishc "nvim -c 'cd ~/.config/fish' ~/.config/fish"
     abbr -a tmuxc "nvim -c 'cd ~/.config/tmux' ~/.config/tmux"
+    abbr -a yazic "nvim -c 'cd ~/.config/yazi' ~/.config/yazi"
+    abbr -a yabaic "nvim -c 'cd ~/.config/yabai' ~/.config/yabai"
 
     switch $_UNAMESYS
         case 'Darwin'

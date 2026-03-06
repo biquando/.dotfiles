@@ -141,6 +141,7 @@ end)
 -- See plugins/harpoon.lua
 -- See plugins/lsp.lua
 -- See plugins/markdownpreview.lua
+-- See plugins/multicursor.lua
 -- See plugins/telescope.lua
 -- See plugins/undotree.lua
 

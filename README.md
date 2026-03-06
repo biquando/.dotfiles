@@ -13,6 +13,7 @@ Medium-priority:
 - python
 - vim
 - tmux
+- lazygit
 
 Low-priority:
 - raycast
@@ -27,6 +28,7 @@ Utilities:
 - ripgrep
 - fd
 - rlwrap
+- delta
 
 Vim:
 - Install vim-plug:

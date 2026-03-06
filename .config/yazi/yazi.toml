@@ -8,12 +8,12 @@ show_hidden = false
 
 [[plugin.prepend_fetchers]]
 id   = "git"
-name = "*"
+url = "*"
 run  = "git"
 
 [[plugin.prepend_fetchers]]
 id   = "git"
-name = "*/"
+url = "*/"
 run  = "git"
 
 # This doesn't seem to work
