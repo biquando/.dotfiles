@@ -16,7 +16,7 @@ function __fish_user_interactive
     set -gx R "$HOME/Sync/Research/quantum"
     set -gx T "$HOME/Sync/Documents/MS/ta"
     set -gx D "$HOME/Downloads"
-    set -gx P "$HOME/Cloud/Papers"
+    set -gx P "$HOME/Sync/Papers"
     set -gx O "$HOME/Sync/Research/quantum/06_qpl_survey"
 
     # source ~/.iterm2_shell_integration.fish

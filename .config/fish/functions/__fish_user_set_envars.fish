@@ -2,7 +2,11 @@ function __fish_user_set_envars
     set -gx BETTER_EXCEPTIONS 1  # for python better exceptions
     set -gx EDITOR nvim
     set -gx RCLONE_FAST_LIST 1
+
+    set -gx XDG_DATA_HOME "$HOME/.local/share"
     set -gx XDG_CONFIG_HOME "$HOME/.config"
+    set -gx XDG_STATE_HOME "$HOME/.local/state"
+    set -gx XDG_CACHE_HOME "$HOME/.cache"
 
     set -gx PYTHONPATH $HOME/.local/share/python
 

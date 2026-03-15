@@ -61,8 +61,9 @@ vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]])
 vim.keymap.set('t', '<C-w><C-w>', [[<C-\><C-n><C-w><esc>]])
 vim.keymap.set('t', '<C-o>', [[<C-\><C-n><C-o>]])
 
--- Format current paragraph
+-- Format current paragraph or selection
 vim.keymap.set('n', '<Leader>f', [[gqip]])
+vim.keymap.set('v', '<Leader>f', [[gq]])
 
 --[[=================]]
 --[[ Setting Keymaps ]]
