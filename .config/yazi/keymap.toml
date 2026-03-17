@@ -93,3 +93,8 @@ desc = "Connect to uaptt"
 on   = [ "g", "b" ]
 run  = "cd sftp://bora"
 desc = "Connect to bora"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "a" ]
+run  = "cd sftp://air"
+desc = "Connect to air"
