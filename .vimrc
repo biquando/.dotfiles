@@ -1,10 +1,12 @@
 let mapleader=' '
 nnoremap <Space> <Nop>
 
-call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
-call plug#end()
+if filereadable(expand('~/.vim/autoload/plug.vim'))
+    call plug#begin('~/.vim/plugged')
+    Plug 'tpope/vim-surround'
+    Plug 'jiangmiao/auto-pairs'
+    call plug#end()
+endif
 
 syntax on                                    " syntax highlighting
 filetype plugin indent on                    " language-based indenting
@@ -14,7 +16,7 @@ set hlsearch                                 " highlight matches when searching
 set ignorecase                               " ignore case when searching
 set incsearch                                " incremental search highlighting
 set list                                     " enable listchars
-set listchars=tab:\\x20\\x20,trail:~,nbsp:+  " show trailing spaces and nbsp
+set listchars=tab:>\\x20,trail:~,nbsp:+      " show trailing spaces and nbsp
 set mouse=a                                  " enable mouse control
 set ruler                                    " show current cursor position in status bar
 set smartcase                                " enable case-sensitive search if uppercase

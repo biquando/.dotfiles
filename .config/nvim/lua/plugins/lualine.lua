@@ -14,9 +14,9 @@ return {
       lualine_x = {
         function()
           if vim.o.expandtab then
-            return 'SP ' .. vim.o.tabstop
+            return 'SP ' .. vim.o.shiftwidth
           else
-            return 'TS ' .. vim.o.tabstop
+            return 'TS ' .. vim.o.shiftwidth
           end
         end,
         function()

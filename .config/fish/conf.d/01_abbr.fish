@@ -1,17 +1,26 @@
 if status is-interactive
+    # ls abbreviations
     abbr -a ll ls -Alh
     abbr -a la ls -alh
     abbr -a l ls
     abbr -a sl ls
+
+    # Default arguments
     abbr -a tree tree -C --dirsfirst
-    abbr -a py "source ~/.dotfiles/venv/bin/activate.fish && PYTHONSTARTUP=\"$HOME/.pythonrc\" ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.timeoutlen=0 --no-banner; deactivate"
-    # abbr -a vimc "cd ~/.config/nvim && nvim ."
+    abbr -a fd fd --no-ignore
+    abbr -a rg rg --no-ignore
     abbr -a p pwd -P
-    abbr -a ports "sudo lsof -i -P -n | grep LISTEN | grep ':[0-9]\+\ '"
-    abbr -a t 'cut -c 1-$COLUMNS'
+
+    # Python
+    abbr -a py "source ~/.dotfiles/venv/bin/activate.fish && PYTHONSTARTUP=\"$HOME/.pythonrc\" ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.timeoutlen=0 --no-banner; deactivate"
     abbr -a vv '. venv/bin/activate.fish'
     abbr -a vq '. ~/projects/python/quantum/venv/bin/activate.fish'
 
+    # Utilities
+    abbr -a ports "sudo lsof -i -P -n | grep LISTEN | grep ':[0-9]\+\ '"
+    abbr -a t 'cut -c 1-$COLUMNS'
+
+    # Configurations
     abbr -a vimc "nvim -c 'cd ~/.config/nvim' ~/.config/nvim"
     abbr -a fishc "nvim -c 'cd ~/.config/fish' ~/.config/fish"
     abbr -a tmuxc "nvim -c 'cd ~/.config/tmux' ~/.config/tmux"

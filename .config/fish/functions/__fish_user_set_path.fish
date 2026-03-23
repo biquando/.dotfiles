@@ -8,7 +8,8 @@ function __fish_user_set_path
             $HOME/.opam/default/bin \
             /opt/homebrew/bin \
             /opt/homebrew/sbin \
-            /Applications/Docker.app/Contents/Resources/bin
+            /Applications/Docker.app/Contents/Resources/bin \
+            /opt/homebrew/opt/openjdk/bin
         case 'Linux'; set pathlist \
             $HOME/bin \
             $HOME/.local/bin \
