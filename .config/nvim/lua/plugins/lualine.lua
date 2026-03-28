@@ -21,7 +21,7 @@ return {
         end,
         function()
           if vim.api.nvim_buf_get_name(0):find('^term://') then
-            return 'Term ' .. tostring(SETTINGS.termid)
+            return SETTINGS.termenu.latest
           end
           return ''
         end,

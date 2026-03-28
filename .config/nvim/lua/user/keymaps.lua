@@ -56,9 +56,10 @@ vim.keymap.set('n', '<Esc>', function()
 end, { desc = 'Clear highlight' })
 
 -- Terminal keymaps
-vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
+vim.keymap.set('t', '<esc><esc>', [[<C-\><C-n>]])
 vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]])
 vim.keymap.set('t', '<C-w><C-w>', [[<C-\><C-n><C-w><esc>]])
+vim.keymap.set('t', '<esc><C-o>', [[<C-o>]])
 vim.keymap.set('t', '<C-o>', [[<C-\><C-n><C-o>]])
 
 -- Format current paragraph or selection
@@ -137,6 +138,7 @@ end)
 --[[ External Keymaps ]]
 --[[==================]]
 
+-- See user/termenu.lua
 -- See plugins/cmp.lua
 -- See plugins/gitsigns.lua
 -- See plugins/harpoon.lua

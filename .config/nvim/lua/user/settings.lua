@@ -1,4 +1,4 @@
 SETTINGS = {
   virtual_text = true,
-  termid = 1,
+  termenu = require('user.termenu'),
 }

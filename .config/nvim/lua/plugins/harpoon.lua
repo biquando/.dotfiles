@@ -8,7 +8,7 @@ return {
     -- SECTION: Options
     require('harpoon').setup({
       menu = {
-        width = math.min(80, vim.api.nvim_win_get_width(0) - 10),
+        width = math.min(80, vim.o.columns - 10),
       },
       tabline = true,
     })
@@ -38,24 +38,5 @@ return {
     -- Left / right
     vim.keymap.set('n', '<S-h>', function() ui.nav_prev() end)
     vim.keymap.set('n', '<S-l>', function() ui.nav_next() end)
-
-    -- Terminals
-    local enterTerm = function(id)
-      term.gotoTerminal(id)
-      vim.cmd('startinsert')
-      vim.o.scrolloff = 8 -- HACK: For some reason opening the terminal *twice*
-                          -- sets the scrolloff to zero. See user/options.lua.
-    end
-    local open_term = function()
-      local count = vim.v.count
-      if count == 0 then
-        count = SETTINGS.termid
-      else
-        SETTINGS.termid = count
-      end
-      enterTerm(count)
-    end
-    vim.keymap.set('n', '<C-;>', open_term)
-    vim.keymap.set('n', '<C-\\>', open_term) -- tmux doesn't support <C-;>
   end,
 }

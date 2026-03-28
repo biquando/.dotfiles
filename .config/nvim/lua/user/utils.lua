@@ -29,4 +29,10 @@ M.dump = function(tbl, indent)
 end
 
 
+-- Source - https://stackoverflow.com/questions/10460126/how-to-remove-spaces-from-a-string-in-lua
+M.trim = function(s)
+   return s:match( "^%s*(.-)%s*$" )
+end
+
+
 return M
