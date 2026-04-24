@@ -45,10 +45,24 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
 -- Move lines up/down/left/right
-vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv")
-vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', '<C-h>', '<gv')
-vim.keymap.set('v', '<C-l>', '>gv')
+vim.keymap.set({'n', 'i'}, '<M-k>', function()
+  vim.cmd('m -2<CR>')
+  vim.cmd("normal! ==")
+end)
+vim.keymap.set({'n', 'i'}, '<M-j>', function()
+  vim.cmd('m +1<CR>')
+  vim.cmd("normal! ==")
+end)
+vim.keymap.set({'n', 'i'}, '<M-h>', function()
+  vim.cmd('normal! <<^')
+end)
+vim.keymap.set({'n', 'i'}, '<M-l>', function()
+  vim.cmd("normal! >>^")
+end)
+vim.keymap.set('v', '<M-k>', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', '<M-j>', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', '<M-h>', '<gv')
+vim.keymap.set('v', '<M-l>', '>gv')
 
 -- Use <esc> to clear search highlight
 vim.keymap.set('n', '<Esc>', function()
@@ -63,14 +77,14 @@ vim.keymap.set('t', '<esc><C-o>', [[<C-o>]])
 vim.keymap.set('t', '<C-o>', [[<C-\><C-n><C-o>]])
 
 -- Format current paragraph or selection
-vim.keymap.set('n', '<Leader>f', [[gqip]])
-vim.keymap.set('v', '<Leader>f', [[gq]])
+vim.keymap.set('n', '<leader>f', [[gqip]])
+vim.keymap.set('v', '<leader>f', [[gq]])
 
 --[[=================]]
 --[[ Setting Keymaps ]]
 --[[=================]]
 
-local settingsLeader = '<Leader>,'
+local settingsLeader = '<leader>,'
 
 local settingKeymap = function(key, desc, action)
   vim.keymap.set('n', settingsLeader .. key, action, { desc = desc })
@@ -146,7 +160,6 @@ end)
 -- See plugins/markdownpreview.lua
 -- See plugins/multicursor.lua
 -- See plugins/telescope.lua
--- See plugins/undotree.lua
 
 -- TODO: toggle linting hints
 -- TODO: toggle zen mode

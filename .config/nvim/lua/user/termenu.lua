@@ -1,3 +1,6 @@
+-- TODO: add an autocmd on bufenter that checks if the current buffer is a
+-- registered terminal, and set latest if so
+
 ---@class Termenu
 ---@field width number
 ---@field height number

@@ -28,6 +28,10 @@ return {
 
       ['<C-x>'] = { 'cancel', 'fallback' },
       -- ['<Esc>'] = { 'cancel', 'fallback' },
+
+      -- ['<C-u>'] = { 'scroll_signature_up', 'fallback' },
+      -- ['<C-d>'] = { 'scroll_signature_down', 'fallback' },
+      -- ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
     },
 
     completion = {
