@@ -36,9 +36,16 @@
   },
 
   "frac": {
-    "prefix": "frac",
+    "prefix": "//",
     "body": [
       "\\frac{$1}{$2}$0"
+    ]
+  },
+
+  "partial": {
+    "prefix": "p",
+    "body": [
+      "\\partial $0"
     ]
   }
 }

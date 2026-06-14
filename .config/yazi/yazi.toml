@@ -7,14 +7,14 @@ play = [
 show_hidden = false
 
 [[plugin.prepend_fetchers]]
-id   = "git"
 url = "*"
 run  = "git"
+group = "git"
 
 [[plugin.prepend_fetchers]]
-id   = "git"
 url = "*/"
 run  = "git"
+group = "git"
 
 # This doesn't seem to work
 [[plugin.prepend_previewers]]

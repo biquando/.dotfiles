@@ -12,7 +12,7 @@ if status is-interactive
     abbr -a p pwd -P
 
     # Python
-    abbr -a py "source ~/.dotfiles/venv/bin/activate.fish && PYTHONSTARTUP=\"$HOME/.pythonrc\" ipython --TerminalInteractiveShell.editing_mode=vi --TerminalInteractiveShell.timeoutlen=0 --no-banner; deactivate"
+    abbr -a py "source ~/.dotfiles/venv/bin/activate.fish && PYTHONSTARTUP=\"$HOME/.pythonrc\" ipython; deactivate"
     abbr -a vv '. venv/bin/activate.fish'
     abbr -a vq '. ~/projects/python/quantum/venv/bin/activate.fish'
 

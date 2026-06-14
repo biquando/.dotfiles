@@ -11,8 +11,9 @@ return {
       'cpp',
       'latex',
       'lua',
-      'python',
       'markdown',
+      'python',
+      'rust',
     }
     require('nvim-treesitter').install(languages)
 

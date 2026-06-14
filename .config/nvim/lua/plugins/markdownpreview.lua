@@ -20,8 +20,8 @@ return {
     vim.keymap.set(
       'n',
       '<Leader>mdp',
-      ':MarkdownPreview<CR>',
-      { desc = '[M]ark[d]own [p]review' }
+      '<cmd>MarkdownPreview<CR>',
+      { desc = '[m]ark[d]own [p]review' }
     )
   end,
 
