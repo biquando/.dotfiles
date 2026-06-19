@@ -28,6 +28,7 @@ local ft_group = vim.api.nvim_create_augroup('Filetypes', { clear = true })
 vim.filetype.add({ extension = { v = "verilog" } })
 vim.filetype.add({ extension = { slq = "silq" } })
 vim.filetype.add({ extension = { tex = "latex" } })
+vim.filetype.add({ extension = { ll = "llvm" } })
 -- tex/plaintex/latex
 -- vim.api.nvim_create_autocmd('FileType', {
 --   group = ft_group,
@@ -52,6 +53,7 @@ local ft_indents = {
   fish     = { 4, true },
   haskell  = { 2, true },
   json     = { 2, true },
+  llvm     = { 4, true },
   lua      = { 2, true },
   make     = { 8, false },
   markdown = { 2, true },
