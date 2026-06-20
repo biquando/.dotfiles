@@ -11,16 +11,14 @@ function __fish_user_interactive
     fish_config theme choose "coolbeans"
 
     ### Variables ####################################################
+    set -gx A "$HOME/Sync/Documents/Housing/03 midvale towers"
+    set -gx D "$HOME/Downloads"
     set -gx N "$HOME/Obsidian"
+    set -gx O "$HOME/Sync/Research/quantum/07_symbolic_execution"
     set -gx Q "$HOME/Sync/Documents/UCLA/25-26/Spring"
     set -gx R "$HOME/Sync/Research/quantum"
-    set -gx T "$HOME/Sync/Documents/MS/ta"
-    set -gx D "$HOME/Downloads"
-    set -gx P "$HOME/Sync/Papers"
-    set -gx O "$HOME/Sync/Research/quantum/06_qpl_survey"
-    set -gx A "$HOME/Sync/Documents/Official/midvale_towers"
-
-    # source ~/.iterm2_shell_integration.fish
+    set -gx S "$HOME/Sync"
+    set -gx T "$HOME/Sync/Documents/UCLA/TA"
 
     ### Host-dependent ###############################################
     switch $_HOSTNAME
