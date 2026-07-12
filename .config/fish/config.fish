@@ -22,7 +22,7 @@ function __fish_user_interactive
 
     ### Host-dependent ###############################################
     switch $_HOSTNAME
-        case 'biquando-u'
+        case 'biquando-v'
             set -l ARCHIVE_BASE "$HOME/Archive"
             set -g ARCHIVE (date "+$ARCHIVE_BASE"'/%y/%m')
             test -d "$ARCHIVE"; or mkdir -p $ARCHIVE

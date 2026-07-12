@@ -1,8 +1,8 @@
-[services.uaptt]
+[services.v]
 type = "sftp"
-host = "biquando-u"
+host = "biquando-v"
 user = "biqua"
-port = 57589
+port = 22
 key_file = "~/.ssh/id_rsa"
 
 [services.bora]

@@ -91,9 +91,9 @@ desc = "[User] Open with default program"
 # Remotes
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "u" ]
-run  = "cd sftp://uaptt"
-desc = "[Remote] Connect to uaptt"
+on   = [ "g", "v" ]
+run  = "cd sftp://v"
+desc = "[Remote] Connect to biquando-v"
 
 [[mgr.prepend_keymap]]
 on   = [ "g", "b" ]
