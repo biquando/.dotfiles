@@ -1,2 +1,4 @@
+^\.git$
 ^requirements\.txt$
 ^README\.md$
+^venv$
