@@ -13,12 +13,12 @@ function __fish_user_interactive
     ### Variables ####################################################
     set -gx A "$HOME/Sync/Documents/Housing/03 midvale towers"
     set -gx D "$HOME/Downloads"
-    set -gx N "$HOME/Obsidian"
-    set -gx O "$HOME/Sync/Research/quantum/07_symbolic_execution"
+    set -gx N "$HOME/Sync/Notes"
+    set -gx O "$HOME/Sync/Research/quantum/08_qir"
     set -gx Q "$HOME/Sync/Documents/UCLA/25-26/Spring"
     set -gx R "$HOME/Sync/Research/quantum"
     set -gx S "$HOME/Sync"
-    set -gx T "$HOME/Sync/Documents/UCLA/TA"
+    set -gx T "$HOME/Sync/Documents/UCLA/TA/181/2026-summer"
 
     ### Host-dependent ###############################################
     switch $_HOSTNAME

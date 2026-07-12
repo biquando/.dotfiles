@@ -4,6 +4,7 @@ function __fish_user_set_path
             $HOME/bin \
             $HOME/.local/bin \
             $HOME/.cargo/bin \
+            $HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin \
             $HOME/.ghcup/bin \
             $HOME/.opam/default/bin \
             /opt/homebrew/bin \

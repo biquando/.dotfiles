@@ -29,6 +29,7 @@ vim.filetype.add({ extension = { v = "verilog" } })
 vim.filetype.add({ extension = { slq = "silq" } })
 vim.filetype.add({ extension = { tex = "latex" } })
 vim.filetype.add({ extension = { ll = "llvm" } })
+vim.filetype.add({ extension = { s = "arm64" } })
 -- tex/plaintex/latex
 -- vim.api.nvim_create_autocmd('FileType', {
 --   group = ft_group,
@@ -63,6 +64,7 @@ local ft_indents = {
   rust     = { 4, true },
   sh       = { 2, true },
   tex      = { 2, true },
+  tsv      = { 8, false },
 }
 
 vim.api.nvim_create_autocmd('FileType', {
