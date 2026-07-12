@@ -51,5 +51,7 @@ pip install -r requirements.txt
 Matplotlib kitty backend
 - Clone into `~/.local/share/python`:
 ```bash
-git clone --revision=cbe4fe2 --depth=1 https://github.com/jktr/matplotlib-backend-kitty
+git clone https://github.com/jktr/matplotlib-backend-kitty
+cd matplotlib-backend-kitty
+git checkout cbe4fe2
 ```
