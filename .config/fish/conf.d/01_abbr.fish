@@ -48,7 +48,7 @@ if status is-interactive
     end
 
     switch $_HOSTNAME
-        case 'biquando-u'
+        case 'biquando-v'
             abbr -a vim nvim
     end
 end
