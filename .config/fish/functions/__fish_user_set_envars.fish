@@ -10,8 +10,9 @@ function __fish_user_set_envars
 
     set -gx PYTHONPATH $HOME/.local/share/python
 
-    set -gx C_INCLUDE_PATH /usr/local/include /opt/homebrew/include $C_INCLUDE_PATH
-    set -gx CPLUS_INCLUDE_PATH /usr/local/include /opt/homebrew/include $CPLUS_INCLUDE_PATH
-    set -gx LIBRARY_PATH /usr/local/lib /opt/homebrew/lib $LIBRARY_PATH
+    set -gx C_INCLUDE_PATH /usr/local/include /opt/homebrew/include /opt/homebrew/opt/llvm/include $C_INCLUDE_PATH
+    set -gx CPLUS_INCLUDE_PATH /usr/local/include /opt/homebrew/include /opt/homebrew/opt/llvm/include $CPLUS_INCLUDE_PATH
+    set -gx LIBRARY_PATH /usr/local/lib /opt/homebrew/lib /opt/homebrew/opt/llvm/lib $LIBRARY_PATH
     set -gx PKG_CONFIG_PATH /opt/homebrew/lib/pkgconfig $PKG_CONFIG_PATH
+    set -gx CMAKE_PREFIX_PATH /opt/hombrew/opt/llvm $CMAKE_PREFIX_PATH
 end
