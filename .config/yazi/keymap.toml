@@ -86,6 +86,11 @@ on   = [ "o" ]
 run  = "shell -- open %s"
 desc = "[User] Open with default program"
 
+[[mgr.prepend_keymap]]
+on = "!"
+run = "shell --block -- $SHELL"
+desc = "[User] Drop to shell"
+
 
 
 # Remotes

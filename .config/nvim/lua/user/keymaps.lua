@@ -46,18 +46,18 @@ vim.keymap.set('v', '>', '>gv')
 
 -- Move lines up/down/left/right
 vim.keymap.set({'n', 'i'}, '<M-k>', function()
-  vim.cmd('m -2<CR>')
-  vim.cmd("normal! ==")
+  vim.cmd([[m -2<CR>]])
+  vim.cmd([[normal! ==]])
 end)
 vim.keymap.set({'n', 'i'}, '<M-j>', function()
-  vim.cmd('m +1<CR>')
-  vim.cmd("normal! ==")
+  vim.cmd([[m +1<CR>]])
+  vim.cmd([[normal! ==]])
 end)
 vim.keymap.set({'n', 'i'}, '<M-h>', function()
-  vim.cmd('normal! <<^')
+  vim.cmd([[normal! <<^]])
 end)
 vim.keymap.set({'n', 'i'}, '<M-l>', function()
-  vim.cmd("normal! >>^")
+  vim.cmd([[normal! >>^]])
 end)
 vim.keymap.set('v', '<M-k>', ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', '<M-j>', ":m '>+1<CR>gv=gv")
@@ -115,6 +115,15 @@ settingKeymap('v', 'Toggle [v]irtual text', function()
   vim.diagnostic.config({
     virtual_text = SETTINGS.virtual_text,
   })
+end)
+
+settingKeymap('p', 'Toggle [p]rose mode (auto-format)', function()
+  local curr_fo = vim.bo.formatoptions
+  if curr_fo:match('a') then
+    vim.cmd([[set fo-=a]])
+  else
+    vim.cmd([[set fo+=a]])
+  end
 end)
 
 
