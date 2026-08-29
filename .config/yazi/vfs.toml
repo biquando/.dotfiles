@@ -1,19 +1,16 @@
-[services.v]
-type = "sftp"
+[sftp.v]
 host = "biquando-v"
 user = "biqua"
 port = 22
 key_file = "~/.ssh/id_rsa"
 
-[services.bora]
-type = "sftp"
+[sftp.bora]
 host = "bora.cs.ucla.edu"
 user = "biquando"
 port = 22
 key_file = "~/.ssh/id_rsa"
 
-[services.air]
-type = "sftp"
+[sftp.air]
 host = "biquando-air.local"
 user = "biqua"
 port = 22

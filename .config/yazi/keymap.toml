@@ -1,3 +1,5 @@
+## Plugins #####################################################################
+
 ### toggle-pane.yazi
 
 [[mgr.prepend_keymap]]
@@ -10,16 +12,16 @@ desc = "[toggle-pane] Maximize or restore the preview pane"
 
 [[mgr.prepend_keymap]]
 on   = "+"
-run  = "plugin zoom 1"
-desc = "Zoom in hovered file"
+run  = "plugin zoom 5"
+desc = "[zoom] Zoom in hovered file"
 
 [[mgr.prepend_keymap]]
 on   = "-"
-run  = "plugin zoom -1"
-desc = "Zoom out hovered file"
+run  = "plugin zoom -5"
+desc = "[zoom] Zoom out hovered file"
 
 
-# Smart enter
+### smart-enter.yazi
 
 [[mgr.prepend_keymap]]
 on   = [ "l" ]
@@ -28,7 +30,7 @@ desc = "[smart-enter] Enter the child directory, or open the file"
 
 
 
-# Forward and back
+## User ########################################################################
 
 [[mgr.prepend_keymap]]
 on   = [ "<C-o>" ]
@@ -40,16 +42,10 @@ on   = [ "<C-i>" ]
 run  = "forward"
 desc = "[User] Forward to next directory"
 
-
-
-# Quick look
-
 [[mgr.prepend_keymap]]
 on = "<C-p>"
 run = "shell -- qlmanage -p %s"
 desc = "[User] Quick look"
-
-
 
 [[mgr.prepend_keymap]]
 on   = [ "T" ]
@@ -77,6 +73,16 @@ run  = "arrow -1"
 desc = "[User] Up without wrap-around"
 
 [[mgr.prepend_keymap]]
+on   = [ "<C-j>" ]
+run  = "arrow 5"
+desc = "[User] Down 5"
+
+[[mgr.prepend_keymap]]
+on   = [ "<C-k>" ]
+run  = "arrow -5"
+desc = "[User] Up 5"
+
+[[mgr.prepend_keymap]]
 on   = [ "<Space>" ]
 run  = "cd --interactive"
 desc = "[User] Goto file"
@@ -93,7 +99,7 @@ desc = "[User] Drop to shell"
 
 
 
-# Remotes
+## Remotes #####################################################################
 
 [[mgr.prepend_keymap]]
 on   = [ "g", "v" ]

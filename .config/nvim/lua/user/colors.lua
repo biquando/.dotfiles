@@ -45,5 +45,6 @@ local set_poimandres = function()
 end
 
 M.set_colors = set_poimandres
+M.set_colors = function() end
 
 return M

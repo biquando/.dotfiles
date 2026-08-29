@@ -6,21 +6,25 @@ play = [
 [mgr]
 show_hidden = false
 
+# For git.yazi
 [[plugin.prepend_fetchers]]
 url = "*"
 run  = "git"
 group = "git"
 
+# For git.yazi
 [[plugin.prepend_fetchers]]
 url = "*/"
 run  = "git"
 group = "git"
 
+# Disable previews in ~/mnt
 # This doesn't seem to work
 [[plugin.prepend_previewers]]
 url = "~/mnt/**"
 run = "noop"
 
+# Disable preloading in ~/mnt
 [[plugin.prepend_preloaders]]
 url = "~/mnt/**"
 run = "noop"
