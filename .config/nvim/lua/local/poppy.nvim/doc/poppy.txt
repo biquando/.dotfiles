@@ -1,0 +1,147 @@
+*poppy.txt*                    A persistent, clickable file list for Neovim
+
+==============================================================================
+CONTENTS                                                        *poppy-contents*
+
+1. Introduction ................................................. |poppy-intro|
+2. Setup ......................................................... |poppy-setup|
+3. Commands ................................................... |poppy-commands|
+4. Lua API ......................................................... |poppy-api|
+5. Menu ........................................................... |poppy-menu|
+6. Tabline ..................................................... |poppy-tabline|
+7. Configuration ............................................... |poppy-config|
+
+==============================================================================
+1. Introduction                                                   *poppy-intro*
+
+Poppy keeps an ordered list of files for each working directory. The list is
+saved automatically, can be edited in a floating window, and is also rendered
+as a clickable tabline. The tabline is hidden while the current directory's
+list is empty.
+
+Poppy requires Neovim 0.10 or newer and has no dependencies.
+
+==============================================================================
+2. Setup                                                          *poppy-setup*
+
+Call setup once after the plugin is on 'runtimepath': >lua
+
+    local poppy = require("poppy").setup()
+<
+Commands initialize Poppy with its defaults if setup was not called.
+
+==============================================================================
+3. Commands                                                    *poppy-commands*
+
+:PoppyAdd                                                      *:PoppyAdd*
+    Add the current file. Existing entries are not duplicated.
+
+:PoppyToggle                                                *:PoppyToggle*
+    Open or close the editable menu.
+
+:PoppySelect {n}                                            *:PoppySelect*
+    Open entry {n}.
+
+:PoppyNext                                                    *:PoppyNext*
+    Open the next entry. Navigation wraps by default.
+
+:PoppyPrev                                                    *:PoppyPrev*
+    Open the previous entry. Navigation wraps by default.
+
+==============================================================================
+4. Lua API                                                       *poppy-api*
+
+setup({opts})                                               *poppy.setup()*
+    Configure Poppy and return its module table.
+
+list([{root}])                                                *poppy.list()*
+    Return the cached list for {root}, or for settings.key(). This method is
+    normally called with a colon: >lua
+
+        local list = require("poppy"):list()
+<
+list:add([{path}])                                        *poppy-list-add()*
+    Add {path}, or the current normal file buffer when omitted.
+
+list:select({index} [, {opts}])                         *poppy-list-select()*
+    Open entry {index}. With navigation.restore_cursor enabled, restore its
+    saved cursor position.
+
+list:next([{opts}])                                      *poppy-list-next()*
+list:prev([{opts}])                                      *poppy-list-prev()*
+    Navigate relative to the current file. {opts}.wrap overrides the configured
+    wrapping behavior.
+
+poppy.ui:toggle_quick_menu({list})                 *poppy-toggle-quick-menu*
+    Toggle the editable menu for {list}.
+
+teardown([{opts}])                                    *poppy.teardown()*
+    Close Poppy, clear its cache, and restore the tabline options that were
+    active before setup. If the menu cannot be saved, teardown stops and
+    returns an error. Set {opts}.force to discard the menu explicitly.
+
+==============================================================================
+5. Menu                                                          *poppy-menu*
+
+Each menu line is a path. Edit lines with normal Neovim commands. Blank and
+duplicate lines are removed when changes are reconciled.
+
+<CR>        Save the menu and select the cursor line.
+q           Save and close.
+<Esc>       Save and close.
+:write      Save and close.
+
+Edits are also saved when the menu loses focus.
+The floating window maps its background to |hl-Normal| so it matches the
+current editor background.
+
+==============================================================================
+6. Tabline                                                    *poppy-tabline*
+
+Every entry is a mouse target. Clicking one selects that file. The current
+entry uses a bold, reverse-video |hl-PoppyTablineCurrent| so it remains visible
+across colorschemes; other entries use |hl-PoppyTabline|. Labels omit their
+numeric index and have one cell of padding on each side by default.
+
+Poppy sets 'showtabline' to 2 when the current list has entries and to 0 when it
+does not. It saves and restores the prior 'tabline' and 'showtabline' values on
+setup/teardown.
+
+                                              *hl-PoppyTabline*
+                                              *hl-PoppyTablineCurrent*
+                                              *hl-PoppyTablineFill*
+
+==============================================================================
+7. Configuration                                                *poppy-config*
+
+Defaults: >lua
+
+    require("poppy").setup({
+      settings = {
+        key = function() return vim.fn.getcwd() end,
+      },
+      storage = {
+        path = vim.fs.joinpath(vim.fn.stdpath("data"), "poppy"),
+      },
+      menu = {
+        width = 0.62,
+        height = 8,
+        border = "single",
+        title = " Poppy ",
+      },
+      navigation = {
+        wrap = true,
+        restore_cursor = true,
+      },
+      tabline = {
+        enabled = true,
+        show_index = false,
+        padding = 1,
+        separator = " ",
+        formatter = nil,
+      },
+    })
+<
+The storage directory contains one versioned JSON file per settings.key().
+
+vim:tw=78:ts=8:noet:ft=help:norl:
