@@ -28,7 +28,27 @@ return {
     }
 
     require('csvview').setup(opts)
-    vim.cmd([[CsvViewEnable]])
+
+    -- Automatically open in any csv/tsv file
+    local csvview = require('csvview')
+    csvview.setup(opts)
+
+    local group = vim.api.nvim_create_augroup('CsvViewAutoEnable', {
+      clear = true,
+    })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      group = group,
+      pattern = { 'csv', 'tsv' },
+      callback = function(args)
+        csvview.enable(args.buf)
+      end,
+    })
+
+    -- The initial FileType event already caused Lazy to load the plugin.
+    if vim.bo.filetype == 'csv' or vim.bo.filetype == 'tsv' then
+      csvview.enable(0)
+    end
   end,
 
   cmd = { 'CsvViewEnable', 'CsvViewDisable', 'CsvViewToggle' },

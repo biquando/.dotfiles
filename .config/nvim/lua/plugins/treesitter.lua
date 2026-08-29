@@ -3,6 +3,7 @@ if vim.g.vscode then return {} end
 return {
   "romus204/tree-sitter-manager.nvim",
   dependencies = {}, -- tree-sitter CLI must be installed system-wide
+  event = 'VeryLazy',
   config = function()
     require("tree-sitter-manager").setup()
   end,
