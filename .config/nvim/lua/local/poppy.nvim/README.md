@@ -16,17 +16,20 @@ tabline.
 
 ## Requirements
 
-- Neovim 0.10 or newer
+- Neovim 0.12 or newer
 
 ## Setup
 
-Add the plugin with your package manager, then call `setup()`:
+Add the plugin with your package manager, then call `setup()`.
+
+With lazy.nvim:
 
 ```lua
 {
-  "biqua/poppy.nvim",
+  dir = vim.fn.stdpath('config') .. '/lua/local/poppy.nvim',
   config = function()
-    local poppy = require("poppy").setup()
+    local poppy = require('poppy')
+    poppy.setup()
 
     vim.keymap.set("n", "<leader>a", function()
       poppy:list():add()
@@ -53,9 +56,6 @@ Add the plugin with your package manager, then call `setup()`:
 }
 ```
 
-For local development with lazy.nvim, use
-`{ dir = "/path/to/poppy.nvim", config = ... }`.
-
 ## Menu
 
 The menu is a normal editable buffer. Each nonblank line is a path relative to
@@ -69,6 +69,10 @@ the list's working directory, or an absolute path for files outside it.
 
 Deleting lines removes entries; moving lines reorders them. Duplicate and blank
 lines are discarded when the menu is saved.
+
+The menu sets a root-aware `omnifunc` for filename completion. Use
+`<C-x><C-o>` with Neovim's built-in completion, or enable the generic omni
+source in your completion plugin.
 
 ## Commands
 
@@ -98,14 +102,14 @@ require("poppy").setup({
     path = vim.fs.joinpath(vim.fn.stdpath("data"), "poppy"),
   },
   menu = {
-    width = 0.62,
+    width = 80,
     height = 8,
-    border = "single",
+    border = "rounded",
     title = " Poppy ",
   },
   navigation = {
-    wrap = true,
-    restore_cursor = true,
+    wrap = true, -- :PoppyNext and :PoppyPrev wrap
+    restore_cursor = true, -- restore cursor location when opening file
   },
   tabline = {
     enabled = true,
@@ -118,8 +122,8 @@ require("poppy").setup({
 ```
 
 `menu.width` and `menu.height` accept an absolute cell count; values in `(0, 1]`
-are treated as a fraction of the editor size. A tabline formatter
-can return any label text:
+are treated as a fraction of the editor size. A tabline formatter can return any
+label text:
 
 ```lua
 require("poppy").setup({
@@ -130,6 +134,8 @@ require("poppy").setup({
   },
 })
 ```
+
+Left-clicking a tabline entry opens it; right-clicking removes it from the list.
 
 Poppy owns Neovim's global `tabline` and `showtabline` options while it is set
 up. It sets `showtabline` to `2` for a nonempty list and `0` for an empty list;

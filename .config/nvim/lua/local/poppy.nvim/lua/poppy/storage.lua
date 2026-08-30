@@ -19,7 +19,7 @@ local function is_missing(err)
 end
 
 local function is_list(value)
-  local predicate = vim.islist or vim.tbl_islist
+  local predicate = vim.islist
   return type(value) == "table" and predicate(value)
 end
 

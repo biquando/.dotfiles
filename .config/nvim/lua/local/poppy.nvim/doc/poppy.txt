@@ -19,7 +19,7 @@ saved automatically, can be edited in a floating window, and is also rendered
 as a clickable tabline. The tabline is hidden while the current directory's
 list is empty.
 
-Poppy requires Neovim 0.10 or newer and has no dependencies.
+Poppy requires Neovim 0.12 or newer and has no dependencies.
 
 ==============================================================================
 2. Setup                                                          *poppy-setup*
@@ -86,6 +86,9 @@ teardown([{opts}])                                    *poppy.teardown()*
 Each menu line is a path. Edit lines with normal Neovim commands. Blank and
 duplicate lines are removed when changes are reconciled.
 
+The menu defines a root-aware 'omnifunc' for filename completion. Invoke it
+with CTRL-X_CTRL-O, or enable omni-function support in a completion plugin.
+
 <CR>        Save the menu and select the cursor line.
 q           Save and close.
 <Esc>       Save and close.
@@ -98,10 +101,11 @@ current editor background.
 ==============================================================================
 6. Tabline                                                    *poppy-tabline*
 
-Every entry is a mouse target. Clicking one selects that file. The current
-entry uses a bold, reverse-video |hl-PoppyTablineCurrent| so it remains visible
-across colorschemes; other entries use |hl-PoppyTabline|. Labels omit their
-numeric index and have one cell of padding on each side by default.
+Every entry is a mouse target. Left-clicking selects that file; right-clicking
+removes it from the list. The current entry uses a bold, reverse-video
+|hl-PoppyTablineCurrent| so it remains visible across colorschemes; other
+entries use |hl-PoppyTabline|. Labels omit their numeric index and have one
+cell of padding on each side by default.
 
 Poppy sets 'showtabline' to 2 when the current list has entries and to 0 when it
 does not. It saves and restores the prior 'tabline' and 'showtabline' values on
@@ -124,9 +128,9 @@ Defaults: >lua
         path = vim.fs.joinpath(vim.fn.stdpath("data"), "poppy"),
       },
       menu = {
-        width = 0.62,
+        width = 80,
         height = 8,
-        border = "single",
+        border = "rounded",
         title = " Poppy ",
       },
       navigation = {

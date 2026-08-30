@@ -245,7 +245,7 @@ function M.refresh()
 end
 
 function M.click(minwid, _clicks, button, _mods)
-  if button ~= nil and button ~= "" and button ~= "l" then
+  if button ~= nil and button ~= "" and button ~= "l" and button ~= "r" then
     return
   end
 
@@ -255,16 +255,23 @@ function M.click(minwid, _clicks, button, _mods)
   end
 
   local ok, poppy = pcall(require, "poppy")
-  if not ok or type(poppy.select) ~= "function" then
+  if not ok or type(poppy.select) ~= "function" or type(poppy.list) ~= "function" then
     return
   end
 
-  local called, result, err = pcall(poppy.select, index)
+  local called, result, err
+  if button == "r" then
+    called, result, err = pcall(function()
+      return poppy:list():remove(index)
+    end)
+  else
+    called, result, err = pcall(poppy.select, index)
+  end
   if not called then
     vim.notify(result, vim.log.levels.ERROR, { title = "Poppy" })
     return
   end
-  if result == nil and err then
+  if err then
     vim.notify(err, vim.log.levels.WARN, { title = "Poppy" })
   end
   return result, err
