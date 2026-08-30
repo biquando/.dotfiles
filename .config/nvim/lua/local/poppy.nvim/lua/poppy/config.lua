@@ -10,7 +10,7 @@ local defaults = {
     path = vim.fs.joinpath(vim.fn.stdpath("data"), "poppy"),
   },
   menu = {
-    width = 0.62,
+    width = 80,
     height = 8,
     border = "single",
     title = " Poppy ",

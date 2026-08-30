@@ -3,10 +3,10 @@
 # Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title Start kitty
-# @raycast.mode compact
+# @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon 🤖
+# @raycast.icon 🐈
 
 
-kitty --single-instance -d ~
+open -n -a kitty --args --single-instance -d "$HOME" >/dev/null 2>&1
