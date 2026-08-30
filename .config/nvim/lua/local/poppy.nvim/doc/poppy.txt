@@ -19,7 +19,7 @@ saved automatically, can be edited in a floating window, and is also rendered
 as a clickable tabline. The tabline is hidden while the current directory's
 list is empty.
 
-Poppy requires Neovim 0.10 or newer and has no dependencies.
+Poppy requires Neovim 0.12 or newer and has no dependencies.
 
 ==============================================================================
 2. Setup                                                          *poppy-setup*
@@ -127,9 +127,9 @@ Defaults: >lua
         path = vim.fs.joinpath(vim.fn.stdpath("data"), "poppy"),
       },
       menu = {
-        width = 0.62,
+        width = 80,
         height = 8,
-        border = "single",
+        border = "rounded",
         title = " Poppy ",
       },
       navigation = {

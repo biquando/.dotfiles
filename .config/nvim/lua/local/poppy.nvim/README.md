@@ -16,17 +16,20 @@ tabline.
 
 ## Requirements
 
-- Neovim 0.10 or newer
+- Neovim 0.12 or newer
 
 ## Setup
 
-Add the plugin with your package manager, then call `setup()`:
+Add the plugin with your package manager, then call `setup()`.
+
+With lazy.nvim:
 
 ```lua
 {
-  "biqua/poppy.nvim",
+  dir = vim.fn.stdpath('config') .. '/lua/local/poppy.nvim',
   config = function()
-    local poppy = require("poppy").setup()
+    local poppy = require('poppy')
+    poppy.setup()
 
     vim.keymap.set("n", "<leader>a", function()
       poppy:list():add()
@@ -52,9 +55,6 @@ Add the plugin with your package manager, then call `setup()`:
   end,
 }
 ```
-
-For local development with lazy.nvim, use
-`{ dir = "/path/to/poppy.nvim", config = ... }`.
 
 ## Menu
 
@@ -102,14 +102,14 @@ require("poppy").setup({
     path = vim.fs.joinpath(vim.fn.stdpath("data"), "poppy"),
   },
   menu = {
-    width = 0.62,
+    width = 80,
     height = 8,
-    border = "single",
+    border = "rounded",
     title = " Poppy ",
   },
   navigation = {
-    wrap = true,
-    restore_cursor = true,
+    wrap = true, -- :PoppyNext and :PoppyPrev wrap
+    restore_cursor = true, -- restore cursor location when opening file
   },
   tabline = {
     enabled = true,
@@ -122,8 +122,8 @@ require("poppy").setup({
 ```
 
 `menu.width` and `menu.height` accept an absolute cell count; values in `(0, 1]`
-are treated as a fraction of the editor size. A tabline formatter
-can return any label text:
+are treated as a fraction of the editor size. A tabline formatter can return any
+label text:
 
 ```lua
 require("poppy").setup({

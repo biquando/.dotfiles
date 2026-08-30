@@ -2,6 +2,7 @@ local M = {}
 
 local defaults = {
   settings = {
+    -- The exact working directory is the project/list key by default.
     key = function()
       return vim.fn.getcwd()
     end,
@@ -12,12 +13,12 @@ local defaults = {
   menu = {
     width = 80,
     height = 8,
-    border = "single",
+    border = "rounded",
     title = " Poppy ",
   },
   navigation = {
-    wrap = true,
-    restore_cursor = true,
+    wrap = true, -- :PoppyNext and :PoppyPrev wrap
+    restore_cursor = true, -- restore cursor location when opening file
   },
   tabline = {
     enabled = true,

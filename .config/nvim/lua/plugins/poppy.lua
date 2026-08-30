@@ -3,7 +3,8 @@ if vim.g.vscode then return {} end
 return {
   dir = vim.fn.stdpath('config') .. '/lua/local/poppy.nvim',
   config = function()
-    local poppy = require('poppy').setup()
+    local poppy = require('poppy')
+    poppy.setup()
 
     -- Add current file
     vim.keymap.set('n', '<leader>a', function() poppy:list():add() end)
