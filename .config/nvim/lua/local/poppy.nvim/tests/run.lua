@@ -518,6 +518,16 @@ test("tabline clicks select files and labels are safe and unambiguous", function
   truthy(type(_G.PoppyTabClick) == "function", "tabline click callback is missing")
   _G.PoppyTabClick(2, 1, "l", "")
   eq(second, current_file(), "clicking a tabline entry did not select it")
+
+  _G.PoppyTabClick(1, 1, "m", "")
+  eq(3, list:length(), "an unsupported mouse button changed the list")
+  _G.PoppyTabClick(1, 1, "r", "")
+  eq(
+    { "two/shared.lua", "100%.lua" },
+    values(list),
+    "right-clicking a tabline entry did not remove it"
+  )
+  eq(second, current_file(), "right-clicking a tabline entry changed the current buffer")
 end)
 
 test("tabline entries beyond fifty remain valid and clickable", function()
@@ -546,6 +556,10 @@ test("tabline entries beyond fifty remain valid and clickable", function()
     current_file(),
     "extended click callback selected the wrong item"
   )
+
+  _G.PoppyTabClick_51(0, 1, "r", "")
+  eq(50, list:length(), "right-clicking an extended tabline entry did not remove it")
+  eq("file-50.lua", list.items[50].value)
 
   poppy.teardown()
   eq(nil, rawget(_G, "PoppyTabClick_51"), "teardown leaked an extended click callback")

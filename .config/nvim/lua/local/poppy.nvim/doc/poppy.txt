@@ -101,10 +101,11 @@ current editor background.
 ==============================================================================
 6. Tabline                                                    *poppy-tabline*
 
-Every entry is a mouse target. Clicking one selects that file. The current
-entry uses a bold, reverse-video |hl-PoppyTablineCurrent| so it remains visible
-across colorschemes; other entries use |hl-PoppyTabline|. Labels omit their
-numeric index and have one cell of padding on each side by default.
+Every entry is a mouse target. Left-clicking selects that file; right-clicking
+removes it from the list. The current entry uses a bold, reverse-video
+|hl-PoppyTablineCurrent| so it remains visible across colorschemes; other
+entries use |hl-PoppyTabline|. Labels omit their numeric index and have one
+cell of padding on each side by default.
 
 Poppy sets 'showtabline' to 2 when the current list has entries and to 0 when it
 does not. It saves and restores the prior 'tabline' and 'showtabline' values on

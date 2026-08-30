@@ -135,6 +135,8 @@ require("poppy").setup({
 })
 ```
 
+Left-clicking a tabline entry opens it; right-clicking removes it from the list.
+
 Poppy owns Neovim's global `tabline` and `showtabline` options while it is set
 up. It sets `showtabline` to `2` for a nonempty list and `0` for an empty list;
 `require("poppy").teardown()` restores the previous values. If an edited menu
