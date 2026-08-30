@@ -15,8 +15,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- SECTION: Close terminal when shell exits
 vim.api.nvim_create_autocmd('TermClose', {
-  callback = function()
-    vim.cmd('bdelete')
+  callback = function(args)
+    vim.api.nvim_buf_delete(args.buf, {})
   end
 })
 
@@ -27,7 +27,6 @@ local ft_group = vim.api.nvim_create_augroup('Filetypes', { clear = true })
 
 vim.filetype.add({ extension = { v = "verilog" } })
 vim.filetype.add({ extension = { slq = "silq" } })
-vim.filetype.add({ extension = { tex = "latex" } })
 vim.filetype.add({ extension = { ll = "llvm" } })
 vim.filetype.add({ extension = { s = "arm64" } })
 -- tex/plaintex/latex
@@ -77,10 +76,10 @@ vim.api.nvim_create_autocmd('FileType', {
 
     local indentation = ft_indents[ft]
     if indentation then
-        SET_INDENT(buf, indentation[1], indentation[2], false)
+        SET_INDENT(indentation[1], indentation[2], false)
     else
-        SET_INDENT(buf, ft_indents['DEFAULT'][1],
-                        ft_indents['DEFAULT'][2], false)
+        SET_INDENT(ft_indents['DEFAULT'][1],
+                   ft_indents['DEFAULT'][2], false)
     end
   end
 })

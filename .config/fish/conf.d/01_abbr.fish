@@ -40,6 +40,7 @@ if status is-interactive
             abbr -a tectonic "tectonic -X"
             abbr -a tec 'tectonic -X build && tectonic -X watch'
             abbr -a ocaml 'rlwrap ocaml'
+            abbr -a v 'kitten ssh v'
         case 'Linux'
             abbr -a myip "ip a | grep 'inet[^6]'"
             abbr -a fdsk "sudo fdisk -l | sed -e '/Disk \/dev\/loop/,+5d'"

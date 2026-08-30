@@ -14,8 +14,8 @@ return {
         })
       end
 
-      map('n', git.next_hunk, '[n]ext hunk')
-      map('N', git.prev_hunk, 'previous hunk')
+      map('n', function() git.nav_hunk('next') end, '[n]ext hunk')
+      map('N', function() git.nav_hunk('prev') end, 'previous hunk')
       map('p', git.preview_hunk, '[p]review hunk')
       map('s', git.stage_hunk, '[s]tage hunk')
       map('r', git.reset_hunk, '[r]eset hunk')

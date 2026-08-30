@@ -1,7 +1,7 @@
 if vim.g.vscode then return {} end
 
-if not vim.fn.executable('npm') then
-  return
+if vim.fn.executable('npm') == 0 then
+  return {}
 end
 
 return {

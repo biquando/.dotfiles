@@ -5,10 +5,8 @@ end
 
 function __fish_user_interactive
     __fish_user_key_bindings
-    # fish_config theme choose tokyonight_night
-    # fish_config theme choose "Snow Day"
-    # fish_config theme choose "Catppuccin Macchiato"
     fish_config theme choose "coolbeans"
+    set -g fish_greeting
 
     ### Variables ####################################################
     set -gx A "$HOME/Sync/Documents/Housing/03 midvale towers"
