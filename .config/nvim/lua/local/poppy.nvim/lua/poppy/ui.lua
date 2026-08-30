@@ -1,4 +1,5 @@
 local Config = require("poppy.config")
+local Completion = require("poppy.completion")
 
 local M = {}
 
@@ -221,6 +222,13 @@ local function setup_buffer(bufnr, winid)
   vim.api.nvim_set_option_value("swapfile", false, { buf = bufnr })
   vim.api.nvim_set_option_value("modifiable", true, { buf = bufnr })
   vim.api.nvim_set_option_value("filetype", "poppy", { buf = bufnr })
+  vim.b[bufnr].poppy_root = state.list.root
+  _G.PoppyMenuComplete = Completion.omnifunc
+  vim.api.nvim_set_option_value(
+    "omnifunc",
+    "v:lua.PoppyMenuComplete",
+    { buf = bufnr }
+  )
   vim.api.nvim_set_option_value("number", true, { win = winid })
   vim.api.nvim_set_option_value("relativenumber", false, { win = winid })
   vim.api.nvim_set_option_value(

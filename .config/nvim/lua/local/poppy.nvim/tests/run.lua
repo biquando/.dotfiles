@@ -441,6 +441,35 @@ test("editable UI reconciles on close and write", function()
   falsy(poppy.ui:is_open(), "Enter did not close the menu")
 end)
 
+test("menu offers root-relative filename completion through omnifunc", function()
+  local env = make_sandbox("completion")
+  write_file(vim.fs.joinpath(env.project, "build", "deep.lua"), { "deep" })
+  write_file(vim.fs.joinpath(env.project, "bundle.lua"), { "bundle" })
+
+  local poppy = setup(env)
+  local list = poppy:list()
+  local _, bufnr = poppy.ui:open(list)
+  local completion = require("poppy.completion")
+
+  eq("v:lua.PoppyMenuComplete", vim.bo[bufnr].omnifunc)
+  eq(env.project, vim.b[bufnr].poppy_root)
+  eq(0, vim.fn.luaeval("PoppyMenuComplete(_A[1], _A[2])", { 1, "bui" }))
+
+  local empty_items = completion.omnifunc(0, "")
+  eq({ "build/", "bundle.lua" }, { empty_items[1].word, empty_items[2].word })
+
+  local root_items = completion.omnifunc(0, "bui")
+  eq(1, #root_items)
+  eq("build/", root_items[1].word)
+  eq("build", root_items[1].abbr)
+  eq(nil, root_items[1].kind)
+
+  local nested_items = completion.omnifunc(0, "build/de")
+  eq(1, #nested_items)
+  eq("build/deep.lua", nested_items[1].word)
+  eq(nil, nested_items[1].kind)
+end)
+
 test("tabline hides when empty and highlights the current item", function()
   local env = make_sandbox("tabline-visible")
   local first = write_file(vim.fs.joinpath(env.project, "first.lua"), { "first" })

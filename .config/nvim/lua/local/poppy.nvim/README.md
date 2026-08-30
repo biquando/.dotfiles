@@ -70,6 +70,10 @@ the list's working directory, or an absolute path for files outside it.
 Deleting lines removes entries; moving lines reorders them. Duplicate and blank
 lines are discarded when the menu is saved.
 
+The menu sets a root-aware `omnifunc` for filename completion. Use
+`<C-x><C-o>` with Neovim's built-in completion, or enable the generic omni
+source in your completion plugin.
+
 ## Commands
 
 | Command | Action |

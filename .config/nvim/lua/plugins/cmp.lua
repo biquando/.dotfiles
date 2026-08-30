@@ -40,12 +40,21 @@ return {
 
     sources = {
       default = { 'lazydev', 'lsp', 'snippets', 'path', 'buffer' },
+      per_filetype = { poppy = { 'omni' } }, -- poppy path autocompletion
       providers = {
+        -- lazydev completions
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
           -- make lazydev completions top priority (see `:h blink.cmp`)
           score_offset = 100,
+        },
+
+        -- poppy: trigger blink on '/' (ends of directory paths)
+        omni = {
+          override = {
+            get_trigger_characters = function() return { '/' } end,
+          },
         },
       },
     },
@@ -54,4 +63,27 @@ return {
 
     signature = { enabled = true },
   },
+
+  config = function(_, opts)
+    local blink = require('blink.cmp')
+    blink.setup(opts)
+
+    -- In the poppy menu, trigger blink on an empty line
+    local group = vim.api.nvim_create_augroup('BlinkCmpPoppy', { clear = true })
+    vim.api.nvim_create_autocmd('InsertEnter', {
+      group = group,
+      callback = function(event)
+        if vim.bo[event.buf].filetype ~= 'poppy' then return end
+
+        vim.schedule(function()
+          if vim.api.nvim_get_current_buf() == event.buf
+            and vim.api.nvim_get_mode().mode == 'i'
+            and vim.api.nvim_get_current_line() == ''
+          then
+            blink.show({ providers = { 'omni' } })
+          end
+        end)
+      end,
+    })
+  end,
 }

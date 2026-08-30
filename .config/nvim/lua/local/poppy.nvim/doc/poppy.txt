@@ -86,6 +86,9 @@ teardown([{opts}])                                    *poppy.teardown()*
 Each menu line is a path. Edit lines with normal Neovim commands. Blank and
 duplicate lines are removed when changes are reconciled.
 
+The menu defines a root-aware 'omnifunc' for filename completion. Invoke it
+with CTRL-X_CTRL-O, or enable omni-function support in a completion plugin.
+
 <CR>        Save the menu and select the cursor line.
 q           Save and close.
 <Esc>       Save and close.
