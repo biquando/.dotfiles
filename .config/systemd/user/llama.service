@@ -1,0 +1,12 @@
+[Unit]
+Description=llama.cpp
+After=network.target
+
+[Service]
+ExecStart=/home/biqua/services/bin/llama.sh
+Restart=on-failure
+RestartSec=5
+RestartForceExitStatus=1
+
+[Install]
+WantedBy=default.target

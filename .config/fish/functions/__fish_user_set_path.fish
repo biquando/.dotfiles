@@ -23,6 +23,8 @@ function __fish_user_set_path
         case 'biquando-u'; set --prepend pathlist \
             $HOME/services/bin \
             $HOME/.nvm/versions/node/v22.17.0/bin
+        case 'biquando-v'; set --prepend pathlist \
+            $HOME/services/bin
     end
 
     fish_add_path -g $pathlist
