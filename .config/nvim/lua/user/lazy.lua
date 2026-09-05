@@ -21,7 +21,7 @@ require("lazy").setup({
 
     -- Simple plugins
     { 'tpope/vim-surround', event = 'VeryLazy' },
-    'tpope/vim-sleuth', -- alternative: NMAC427/guess-indent.nvim
+    { 'tpope/vim-sleuth' }, -- alternative: NMAC427/guess-indent.nvim
     { 'tpope/vim-fugitive', event = 'VeryLazy' },
     { 'windwp/nvim-autopairs', event = 'VeryLazy', config = true },
   },

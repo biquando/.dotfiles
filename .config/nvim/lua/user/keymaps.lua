@@ -162,12 +162,13 @@ end)
 --[[==================]]
 
 -- See user/termenu.lua
+-- See plugins/codediff.lua
 -- See plugins/cmp.lua
 -- See plugins/gitsigns.lua
--- See plugins/harpoon.lua
 -- See plugins/lsp.lua
 -- See plugins/markdownpreview.lua
 -- See plugins/multicursor.lua
+-- See plugins/poppy.lua
 -- See plugins/telescope.lua
 
 -- TODO: toggle linting hints

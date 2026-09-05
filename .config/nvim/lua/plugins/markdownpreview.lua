@@ -16,14 +16,9 @@ return {
     vim.g.mkdp_auto_close = 0
   end,
 
-  config = function()
-    vim.keymap.set(
-      'n',
-      '<Leader>mdp',
-      '<cmd>MarkdownPreview<CR>',
-      { desc = '[m]ark[d]own [p]review' }
-    )
-  end,
+  keys = {
+    { '<leader>mdp', '<cmd>MarkdownPreview<CR>', desc = '[m]ark[d]own [p]review' },
+  },
 
   ft = { 'markdown' },
 }
