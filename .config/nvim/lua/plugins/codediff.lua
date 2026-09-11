@@ -13,6 +13,8 @@ return {
     keymaps = {
       view = {
         focus_explorer = '<leader>v',
+        next_hunk = '<C-n>',
+        prev_hunk = '<C-p>',
       },
     },
     explorer = {
