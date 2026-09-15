@@ -19,7 +19,7 @@ return {
     vim.keymap.set({'n', 't'}, '<C-l>', function() poppy:list():select(4) end)
 
     -- Left / right
-    vim.keymap.set({'n', 't'}, '<S-h>', function() poppy:list():prev() end)
-    vim.keymap.set({'n', 't'}, '<S-l>', function() poppy:list():next() end)
+    vim.keymap.set({'n'}, '<S-h>', function() poppy:list():prev() end)
+    vim.keymap.set({'n'}, '<S-l>', function() poppy:list():next() end)
   end,
 }

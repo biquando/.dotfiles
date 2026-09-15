@@ -155,6 +155,39 @@ vim.keymap.set('n', '<C-n>', function()
 end)
 
 
+--[[=======================]]
+--[[ QuickFix List Keymaps ]]
+--[[=======================]]
+
+-- quickfix list delete keymap
+local remove_qf_item = function()
+  local curr_row = vim.fn.line('.')
+  local curr_col = vim.fn.col('.')
+
+  local qfall = vim.fn.getqflist()
+  if #qfall == 0 then return end
+
+  table.remove(qfall, curr_row)
+  vim.fn.setqflist(qfall, 'r')
+
+  vim.cmd('copen')
+
+  local new_row = math.min(curr_row, #qfall)
+  vim.api.nvim_win_set_cursor(vim.fn.win_getid(), {new_row, curr_col-1})
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function(args)
+    vim.keymap.set("n", "dd", remove_qf_item, {
+      buffer = args.buf,
+      silent = true,
+    })
+  end,
+})
+
+
+
 
 
 --[[==================]]
@@ -162,12 +195,13 @@ end)
 --[[==================]]
 
 -- See user/termenu.lua
+-- See plugins/codediff.lua
 -- See plugins/cmp.lua
 -- See plugins/gitsigns.lua
--- See plugins/harpoon.lua
 -- See plugins/lsp.lua
 -- See plugins/markdownpreview.lua
 -- See plugins/multicursor.lua
+-- See plugins/poppy.lua
 -- See plugins/telescope.lua
 
 -- TODO: toggle linting hints
