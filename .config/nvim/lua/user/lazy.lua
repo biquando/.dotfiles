@@ -24,6 +24,7 @@ require("lazy").setup({
     { 'tpope/vim-sleuth' }, -- alternative: NMAC427/guess-indent.nvim
     { 'tpope/vim-fugitive', event = 'VeryLazy' },
     { 'windwp/nvim-autopairs', event = 'VeryLazy', config = true },
+    { 'nvim-tree/nvim-web-devicons', event = 'VeryLazy', config = true},
   },
 
   rocks = {

@@ -11,7 +11,8 @@ function __fish_user_set_path
             /opt/homebrew/sbin \
             /opt/homebrew/opt/llvm/bin \
             /Applications/Docker.app/Contents/Resources/bin \
-            /opt/homebrew/opt/openjdk/bin
+            /opt/homebrew/opt/openjdk/bin \
+            $HOME/.local/share/nvim/mason/bin
         case 'Linux'; set pathlist \
             $HOME/bin \
             $HOME/.local/bin \

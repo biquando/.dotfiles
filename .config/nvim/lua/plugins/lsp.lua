@@ -50,7 +50,6 @@ return {
       'html',                     -- html
       'jsonls',                   -- json
       'lua_ls',                   -- lua
-      'ocamllsp',                 -- ocaml
       -- 'pyrefly',                  -- python
       'pyright',                  -- python
       'rust_analyzer',            -- rust
