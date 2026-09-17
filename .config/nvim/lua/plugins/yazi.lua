@@ -6,7 +6,7 @@ return {
   keys = {
     {
       '<leader>e',
-      mode = { 'n', 'v' },
+      mode = { 'n' },
       '<cmd>Yazi<cr>',
       desc = 'Open yazi at the current file',
     },
@@ -14,11 +14,15 @@ return {
 
   opts = {
     open_for_directories = true,
-    -- hooks = {
-    --   ---@diagnostic disable-next-line: unused-local
-    --   yazi_opened = function(_preselected_path, buffer, _config)
-    --     -- vim.keymap.del('t', '<esc>', { buffer = true })
-    --   end,
-    -- },
+    hooks = {
+      ---@diagnostic disable-next-line: unused-local
+      yazi_opened = function(_preselected_path, buffer, _config)
+        vim.keymap.set('t', '<esc><esc>', '<esc><esc>', {
+          buffer = buffer,
+          desc = 'Send <esc><esc> to yazi',
+          noremap = true,
+        })
+      end,
+    },
   },
 }

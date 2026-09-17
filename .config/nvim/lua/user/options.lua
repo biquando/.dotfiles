@@ -46,6 +46,13 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = -1 -- set equal to shiftwidth
 vim.opt.expandtab = true
 
+-- Inside a multiline `(\n)`, indent by one level and align `)` with first line
+vim.g.python_indent = {
+  open_paren = 'shiftwidth()',
+  closed_paren_align_last_line = false,
+}
+vim.g.cinoptions = '(s,m1'
+
 if not vim.g.vscode then
   -- Show columns at 81 and 101
   vim.opt.colorcolumn = '81,101'
