@@ -149,8 +149,7 @@ vim.keymap.set('n', '<C-n>', function()
   if not found_terminal then
     local buf = vim.api.nvim_create_buf(true, true)
     vim.api.nvim_open_win(buf, true, { split = "right" })
-    vim.fn.jobstart(vim.o.shell, { term = true })
-    vim.cmd.startinsert()
+    require('user.termenu').open_latest_terminal()
   end
 end)
 
