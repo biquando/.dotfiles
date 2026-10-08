@@ -17,9 +17,12 @@
 ---@field close_menu function|nil
 ---@field toggle_menu function|nil
 ---@field setup function|nil
+---@field _restore_session function|nil
 
+-- Re-sourcing this file installs the session hooks without losing live state.
+local loaded_termenu = package.loaded['user.termenu']
 ---@type Termenu
-local termenu = {
+local termenu = type(loaded_termenu) == 'table' and loaded_termenu or {
   width = 50,      -- columns in menu
   height = 5,      -- minimum lines in menu
   buf = nil,       -- menu buffer
@@ -66,9 +69,7 @@ end
 
 
 local write_buf = function()
-  vim.api.nvim_buf_set_lines(termenu.buf, 0, -1, true, {}) -- clear buffer
-  vim.api.nvim_buf_set_lines(termenu.buf, 0, 0, true, termenu.menu)
-  vim.api.nvim_buf_set_lines(termenu.buf, -2, -1, true, {}) -- remove newline
+  vim.api.nvim_buf_set_lines(termenu.buf, 0, -1, true, termenu.menu)
 end
 
 
@@ -246,6 +247,86 @@ end
 termenu.setup = function()
   open_buf()
 end
+
+
+-- Session files (including :restart's temporary session) carry their own
+-- metadata. Buffer numbers and Lua tables do not survive a restart.
+local restoring_session = false
+
+termenu._restore_session = function(state)
+  close_win()
+  termenu.menu = state.menu
+  termenu.latest = state.latest
+  termenu.terminals = {}
+
+  -- Register the original term:// names before the session loads them. Nvim
+  -- changes the PID in each name when it starts a fresh shell, but keeps the
+  -- buffer number, so even identical shells remain associated with their names.
+  for name, terminal in pairs(state.terminals) do
+    termenu.terminals[name] = vim.fn.bufadd(terminal)
+  end
+  restoring_session = true
+end
+
+local session_group = vim.api.nvim_create_augroup('TermenuSession', { clear = true })
+
+vim.api.nvim_create_autocmd('SessionWritePost', {
+  group = session_group,
+  callback = function()
+    if win_valid() then read_buf() end
+    local state = {
+      menu = termenu.menu,
+      latest = termenu.latest,
+      terminals = {},
+    }
+    if vim.tbl_contains(vim.opt.sessionoptions:get(), 'terminal') then
+      for name, buf in pairs(termenu.terminals) do
+        if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buftype == 'terminal' then
+          state.terminals[name] = vim.api.nvim_buf_get_name(buf)
+        end
+      end
+    end
+
+    -- This must precede the native session's buffer loading, not run at exit.
+    local session = vim.v.this_session
+    local lines = vim.fn.readfile(session)
+    table.insert(lines, 1, string.format(
+      "lua require('user.termenu')._restore_session(vim.json.decode(%q))",
+      vim.json.encode(state)
+    ))
+    vim.fn.writefile(lines, session)
+  end,
+})
+
+vim.api.nvim_create_autocmd('SessionLoadPost', {
+  group = session_group,
+  nested = true,
+  callback = function()
+    if not restoring_session then return end
+    restoring_session = false
+    -- Initialize hidden shells in a real (invisible) window. bufload() uses an
+    -- autocommand window, which loses terminal-local display options when the
+    -- buffer is later shown: number/list/wrap then fall back to editor defaults.
+    for _, buf in pairs(termenu.terminals) do
+      if vim.api.nvim_buf_is_valid(buf) and not vim.api.nvim_buf_is_loaded(buf) then
+        local win = vim.api.nvim_open_win(buf, false, {
+          relative = 'editor',
+          row = 0,
+          col = 0,
+          width = vim.api.nvim_win_get_width(0),
+          height = vim.api.nvim_win_get_height(0),
+          hide = true,
+          focusable = false,
+        })
+        if vim.api.nvim_win_is_valid(win) then vim.api.nvim_win_close(win, true) end
+      end
+    end
+    if buf_valid() then
+      write_buf()
+      termenu.set_highlights()
+    end
+  end,
+})
 
 
 -- Keymaps
