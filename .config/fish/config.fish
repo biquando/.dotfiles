@@ -13,7 +13,7 @@ function __fish_user_interactive
     set -gx D "$HOME/Downloads"
     set -gx N "$HOME/Sync/Notes"
     set -gx O "$HOME/Sync/Research/quantum/08_qir"
-    set -gx Q "$HOME/Sync/Documents/UCLA/25-26/Spring"
+    set -gx Q "$HOME/Sync/Documents/UCLA/26-27/Fall"
     set -gx R "$HOME/Sync/Research/quantum"
     set -gx S "$HOME/Sync"
     set -gx T "$HOME/Sync/Documents/UCLA/TA/181/2026-summer"

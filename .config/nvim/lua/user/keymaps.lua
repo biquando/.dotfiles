@@ -80,6 +80,34 @@ vim.keymap.set('t', '<C-o>', [[<C-\><C-n><C-o>]])
 vim.keymap.set('n', '<leader>f', [[gqip]])
 vim.keymap.set('v', '<leader>f', [[gq]])
 
+-- Copy a file reference for the selected lines
+vim.keymap.set('v', '<leader>l', function()
+  local path = vim.fn.expand('%:.')
+  if path == '' then
+    vim.notify('Current buffer has no file path', vim.log.levels.WARN)
+    return
+  end
+
+  local first, last = vim.fn.line('v'), vim.fn.line('.')
+  local reference = first == last
+    and string.format('%s:%d', path, first)
+    or string.format('%s:%d-%d', path, math.min(first, last), math.max(first, last))
+  vim.fn.setreg('+', reference)
+  vim.notify('Copied ' .. reference)
+  vim.api.nvim_feedkeys(vim.keycode('<Esc>'), 'n', false)
+end, { desc = 'Copy file and selected line reference' })
+
+-- Copy a file reference
+vim.keymap.set('n', '<leader>l', function()
+  local path = vim.fn.expand('%:.')
+  if path == '' then
+    vim.notify('Current buffer has no file path', vim.log.levels.WARN)
+    return
+  end
+  vim.fn.setreg('+', path)
+end, { desc = 'Copy relative file path' })
+
+
 --[[=================]]
 --[[ Setting Keymaps ]]
 --[[=================]]
@@ -140,6 +168,13 @@ vim.keymap.set('n', '<C-n>', function()
     local buf_name = vim.api.nvim_buf_get_name(buf_id)
     if string.sub(buf_name, 1, 7) == 'term://' then
       vim.api.nvim_set_current_win(win_id)
+      local termenu = require('user.termenu')
+      for name, terminal in pairs(termenu.terminals) do
+        if terminal == buf_id then
+          termenu.latest = name
+          break
+        end
+      end
       vim.cmd('startinsert')
       found_terminal = true
       break
