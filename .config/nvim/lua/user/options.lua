@@ -14,6 +14,9 @@ vim.wo.relativenumber = false
 -- Enable mouse mode
 vim.opt.mouse = 'a'
 
+-- Set mouse scroll speed
+vim.opt.mousescroll = 'ver:1,hor:1'
+
 -- Visually indent wrapped lines
 vim.opt.breakindent = true
 
