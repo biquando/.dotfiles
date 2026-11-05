@@ -33,6 +33,11 @@ desc = "[smart-enter] Enter the child directory, or open the file"
 ## User ########################################################################
 
 [[mgr.prepend_keymap]]
+on   = "<Enter>"
+run  = "shell --block -- nvim %s"
+desc = "[User] Edit in Neovim"
+
+[[mgr.prepend_keymap]]
 on   = [ "<C-o>" ]
 run  = "back"
 desc = "[User] Back to previous directory"

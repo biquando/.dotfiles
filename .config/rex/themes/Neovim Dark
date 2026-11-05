@@ -1,0 +1,26 @@
+# Neovim default dark palette, converted from ~/.config/kitty/neovim.conf
+# Imported into Rex as Neovim Dark.
+
+background = #14161b
+foreground = #e0e2ea
+cursor-color = #eef1f8
+cursor-text = #07080d
+selection-background = #4f5258
+selection-foreground = cell-foreground
+
+palette = 0=#07080d
+palette = 1=#ffc0b9
+palette = 2=#b3f6c0
+palette = 3=#fce094
+palette = 4=#a6dbff
+palette = 5=#ffcaff
+palette = 6=#8cf8f7
+palette = 7=#9b9ea4
+palette = 8=#4f5258
+palette = 9=#ffc0b9
+palette = 10=#b3f6c0
+palette = 11=#fce094
+palette = 12=#a6dbff
+palette = 13=#ffcaff
+palette = 14=#8cf8f7
+palette = 15=#eef1f8

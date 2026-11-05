@@ -33,14 +33,19 @@ if status is-interactive
             abbr -a myip "ifconfig | grep 'inet[^6]'"
             abbr -a lt launchtab
             abbr -a armld "ld -lSystem -syslibroot (xcrun --sdk macosx --show-sdk-path) -e _main -arch arm64"
-            abbr -a icat "kitten icat"
             abbr -a vim nvim
             abbr -a dns "sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-            abbr -a ssh "kitten ssh"
             abbr -a tectonic "tectonic -X"
             abbr -a tec 'tectonic -X build && tectonic -X watch'
             abbr -a ocaml 'rlwrap ocaml'
-            abbr -a v 'kitten ssh v'
+
+            abbr -a icat "kitten icat"
+            if set -q KITTY_WINDOW_ID
+                abbr -a ssh "kitten ssh"
+                abbr -a v 'kitten ssh v'
+            else
+                abbr -a v 'ssh v'
+            end
         case 'Linux'
             abbr -a myip "ip a | grep 'inet[^6]'"
             abbr -a fdsk "sudo fdisk -l | sed -e '/Disk \/dev\/loop/,+5d'"

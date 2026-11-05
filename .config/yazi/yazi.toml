@@ -1,6 +1,15 @@
 [opener]
+markdown = [
+    { run = "termmd %s1", block = true, desc = "View Markdown" },
+]
 play = [
     { run = 'open %s', desc = "Play", orphan = true, for = "macos" }
+]
+
+[open]
+prepend_rules = [
+    { url = "*.md", use = ["markdown", "edit"] },
+    { url = "*.markdown", use = ["markdown", "edit"] },
 ]
 
 [mgr]
