@@ -1,12 +1,12 @@
 -- Use cmd+s to toggle sidebar
-rex.unbind("cmd+/", "client.sidebar.toggle")
+-- rex.unbind("cmd+/", "client.sidebar.toggle")
 rex.bind("cmd+s", "client.sidebar.toggle")
 
 -- Use ctrl+cmd+hjkl to focus panes
-rex.unbind("alt+cmd+left", "pane.focus.left")
-rex.unbind("alt+cmd+down", "pane.focus.down")
-rex.unbind("alt+cmd+up", "pane.focus.up")
-rex.unbind("alt+cmd+right", "pane.focus.right")
+-- rex.unbind("alt+cmd+left", "pane.focus.left")
+-- rex.unbind("alt+cmd+down", "pane.focus.down")
+-- rex.unbind("alt+cmd+up", "pane.focus.up")
+-- rex.unbind("alt+cmd+right", "pane.focus.right")
 rex.bind("ctrl+cmd+h", "pane.focus.left")
 rex.bind("ctrl+cmd+j", "pane.focus.down")
 rex.bind("ctrl+cmd+k", "pane.focus.up")
@@ -14,10 +14,10 @@ rex.bind("ctrl+cmd+l", "pane.focus.right")
 
 
 -- Use ctrl+shift+cmd+hjkl to move panes
-rex.unbind("alt+shift+cmd+left", "pane.move.left")
-rex.unbind("alt+shift+cmd+up", "pane.move.up")
-rex.unbind("alt+shift+cmd+down", "pane.move.down")
-rex.unbind("alt+shift+cmd+right", "pane.move.right")
+-- rex.unbind("alt+shift+cmd+left", "pane.move.left")
+-- rex.unbind("alt+shift+cmd+up", "pane.move.up")
+-- rex.unbind("alt+shift+cmd+down", "pane.move.down")
+-- rex.unbind("alt+shift+cmd+right", "pane.move.right")
 rex.bind("ctrl+shift+cmd+h", "pane.move.left")
 rex.bind("ctrl+shift+cmd+j", "pane.move.up")
 rex.bind("ctrl+shift+cmd+k", "pane.move.down")
@@ -26,6 +26,12 @@ rex.bind("ctrl+shift+cmd+l", "pane.move.right")
 
 -- Use ctrl+cmd+= to balance panes
 rex.bind("ctrl+cmd+=", "pane.balance")
+
+
+-- Use ctrl+cmd+enter to zoom pane
+-- rex.unbind("shift+cmd+enter", "pane.zoom")
+rex.bind("ctrl+cmd+enter", "pane.zoom")
+
 
 
 

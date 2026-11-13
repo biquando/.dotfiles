@@ -29,6 +29,7 @@ vim.filetype.add({ extension = { v = "verilog" } })
 vim.filetype.add({ extension = { slq = "silq" } })
 vim.filetype.add({ extension = { ll = "llvm" } })
 vim.filetype.add({ extension = { s = "arm64" } })
+vim.filetype.add({ extension = { tex = "latex" } })
 -- tex/plaintex/latex
 -- vim.api.nvim_create_autocmd('FileType', {
 --   group = ft_group,

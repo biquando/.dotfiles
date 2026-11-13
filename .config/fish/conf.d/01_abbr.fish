@@ -21,11 +21,17 @@ if status is-interactive
     abbr -a t 'cut -c 1-$COLUMNS'
 
     # Configurations
-    abbr -a vimc "nvim -c 'cd ~/.config/nvim' ~/.config/nvim"
-    abbr -a fishc "nvim -c 'cd ~/.config/fish' ~/.config/fish"
-    abbr -a tmuxc "nvim -c 'cd ~/.config/tmux' ~/.config/tmux"
-    abbr -a yazic "nvim -c 'cd ~/.config/yazi' ~/.config/yazi"
-    abbr -a yabaic "nvim -c 'cd ~/.config/yabai' ~/.config/yabai"
+    # abbr -a vimc "nvim -c 'cd ~/.config/nvim' ~/.config/nvim"
+    # abbr -a fishc "nvim -c 'cd ~/.config/fish' ~/.config/fish"
+    # abbr -a tmuxc "nvim -c 'cd ~/.config/tmux' ~/.config/tmux"
+    # abbr -a yazic "nvim -c 'cd ~/.config/yazi' ~/.config/yazi"
+    # abbr -a yabaic "nvim -c 'cd ~/.config/yabai' ~/.config/yabai"
+    abbr -a vimc   "nvim ~/.config/nvim"
+    abbr -a fishc  "nvim ~/.config/fish"
+    abbr -a tmuxc  "nvim ~/.config/tmux"
+    abbr -a yazic  "nvim ~/.config/yazi"
+    abbr -a yabaic "nvim ~/.config/yabai"
+    abbr -a rexc   "nvim ~/.config/rex"
 
     switch $_UNAMESYS
         case 'Darwin'

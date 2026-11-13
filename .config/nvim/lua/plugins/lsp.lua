@@ -30,6 +30,7 @@ return {
     })
 
     vim.lsp.config('texlab', {
+      filetypes = { 'tex', 'plaintex', 'bib', 'latex' },
       settings = {
         texlab = {
           build = {

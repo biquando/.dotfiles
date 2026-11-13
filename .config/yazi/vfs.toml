@@ -2,16 +2,16 @@
 host = "biquando-v"
 user = "biqua"
 port = 22
-key_file = "~/.ssh/id_rsa"
+key_file = "~/.ssh/id_ed25519"
 
 [sftp.bora]
 host = "bora.cs.ucla.edu"
 user = "biquando"
 port = 22
-key_file = "~/.ssh/id_rsa"
+key_file = "~/.ssh/id_ed25519"
 
 [sftp.air]
 host = "biquando-air.local"
 user = "biqua"
 port = 22
-key_file = "~/.ssh/id_rsa"
+key_file = "~/.ssh/id_ed25519"
