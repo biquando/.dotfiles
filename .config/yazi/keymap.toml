@@ -94,6 +94,11 @@ desc = "[User] Goto file"
 
 [[mgr.prepend_keymap]]
 on   = [ "o" ]
+run  = "open --interactive"
+desc = "[User] Open with..."
+
+[[mgr.prepend_keymap]]
+on   = [ "O" ]
 run  = "shell -- open %s"
 desc = "[User] Open with default program"
 
